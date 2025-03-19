@@ -1,0 +1,16 @@
+Hello GPT, I need a context file for developing my web app with AI. In this webapp the main function is to use play scrumpoker with a developer team. When you open the page, you see a clean welcome screen where you can sign in with microsoft SSO only, because is made for intern use of a comapny. You can only access to the dashboard if you are authenticated. After signing up for the first time with ms sso the user will created in the database, you land on the main dashboard. Here you can see a landing page with a picture of the game page and 2 buttons. one create room and one join room button. when you click create room u will redirect on a create room page where you can see a selection but with only one option. it is the game type. the only available right now is to play scrumpoker after  the fibonacci numbers. so the option is called fibonacci. and the input under  is the room name where you can type the roomname. and under this input u have the create room button which is creating the room. rooms will have an uuid and a generated join code. the code is 5 letters. user will also have  a unique uuid. and after first signup with sso they are able to create a nickname in the profile page. the profilepage shows user details. in the game field you can estimate your points by clicking on cards.  while the time is running you cant see other peoples estimations. also the estimations are anonymous. after the time running up the cards getting revealed. the game has a timer but u can also reveal instantly on a reveal cards button on the middle of the field. the styling is build like there is a table in the middle in just one color with the reveal cards button. outside the table there are the players shown as a unrevealed card. we also have a description about the story tickets in the round which can defined by the room creator. the room creator is automatically the scrum master who can control the timer and the description of the story tickeet. we also have a statistic with the mediand and etc with a good styling after the revealment. 
+
+I am building an web App that helps developer teams and project manager to  estimate  story tickets  points  in a scrumpoker game like https://planningpokeronline.com/. It should be a simple app with modern 2025 design and the accent color is #ea591b and the background white. And the app should be make with react and react route dom and the backend with nodejs express. and database mongo db.  the realtime gameplay should be made with socket io. and for important things like the jwt secret or ports api etc use .env. I need a detailed and structured explanation off the apps flow and features, written as a markdown file, so that it is easy for the app developer to understand and implement. Use the context over to write this. 
+write me the markdown in englisch please without database scheme for now
+
+Give me the full database schema and the optimal folder structure of the web-app and add this in the context-file @CONTEXT.md 
+
+## Tech Stack
+
+- Frontend: React with JSX and React Router DOM
+- Backend: NodeJS express
+- Databbase: MongoDB
+- UI: SCSS
+- AI Processing: Claude-3.7-sonnet
+
+Build the web-app step-by-step by focusing on one task at a time @CONTEXT.md 
