@@ -1,13 +1,20 @@
+// Importiere benutzerdefinierte Logos, wenn du möchtest
+// import typescriptLogo from '../assets/logos/typescript.svg';
+// import mongodbLogo from '../assets/logos/mongodb.svg';
+// usw.
+
 const skills = [
   {
     id: 1,
     name: 'HTML5',
     icon: 'html5',
     iconType: 'fab',
+    // customLogo: null, // Benutze dieses Feld für benutzerdefinierte Logos
     color: '#E34F26',
     category: 'frontend',
     experience: 'Advanced',
-    description: 'Semantic HTML, Accessibility, Forms'
+    description: 'Semantic HTML, Accessibility, Forms',
+    proficiencyLevel: 95 // Prozentsatz der Fähigkeit
   },
   {
     id: 2,
@@ -17,7 +24,8 @@ const skills = [
     color: '#1572B6',
     category: 'frontend',
     experience: 'Advanced',
-    description: 'Flexbox, Grid, Animations, Responsive Design'
+    description: 'Flexbox, Grid, Animations, Responsive Design',
+    proficiencyLevel: 90
   },
   {
     id: 3,
@@ -27,7 +35,8 @@ const skills = [
     color: '#F7DF1E',
     category: 'frontend',
     experience: 'Advanced',
-    description: 'ES6+, DOM Manipulation, Async/Await'
+    description: 'ES6+, DOM Manipulation, Async/Await',
+    proficiencyLevel: 92
   },
   {
     id: 4,
@@ -37,7 +46,8 @@ const skills = [
     color: '#61DAFB',
     category: 'frontend',
     experience: 'Advanced',
-    description: 'Hooks, Context API, Custom Hooks'
+    description: 'Hooks, Context API, Custom Hooks',
+    proficiencyLevel: 88
   },
   {
     id: 5,
@@ -47,17 +57,20 @@ const skills = [
     color: '#339933',
     category: 'backend',
     experience: 'Intermediate',
-    description: 'Express, RESTful APIs, Middleware'
+    description: 'Express, RESTful APIs, Middleware',
+    proficiencyLevel: 80
   },
   {
     id: 6,
     name: 'MongoDB',
     icon: 'database',
     iconType: 'fas',
+    // customLogo: mongodbLogo, // Beispiel für ein benutzerdefiniertes Logo
     color: '#47A248',
     category: 'backend',
     experience: 'Intermediate',
-    description: 'Schema Design, CRUD Operations, Aggregation'
+    description: 'Schema Design, CRUD Operations, Aggregation',
+    proficiencyLevel: 75
   },
   {
     id: 7,
@@ -67,7 +80,8 @@ const skills = [
     color: '#CC6699',
     category: 'frontend',
     experience: 'Advanced',
-    description: 'Variables, Mixins, Functions, Architecture'
+    description: 'Variables, Mixins, Functions, Architecture',
+    proficiencyLevel: 85
   },
   {
     id: 8,
@@ -77,17 +91,20 @@ const skills = [
     color: '#F05032',
     category: 'tools',
     experience: 'Intermediate',
-    description: 'Version Control, Branching, Pull Requests'
+    description: 'Version Control, Branching, Pull Requests',
+    proficiencyLevel: 78
   },
   {
     id: 9,
     name: 'TypeScript',
     icon: 'code',
     iconType: 'fas',
+    // customLogo: typescriptLogo, // Beispiel für ein benutzerdefiniertes Logo
     color: '#3178C6',
     category: 'frontend',
     experience: 'Intermediate',
-    description: 'Types, Interfaces, Generics'
+    description: 'Types, Interfaces, Generics',
+    proficiencyLevel: 70
   },
   {
     id: 10,
@@ -97,7 +114,8 @@ const skills = [
     color: '#764ABC',
     category: 'frontend',
     experience: 'Intermediate',
-    description: 'State Management, Actions, Reducers'
+    description: 'State Management, Actions, Reducers',
+    proficiencyLevel: 75
   },
   {
     id: 11,
@@ -107,7 +125,8 @@ const skills = [
     color: '#F24E1E',
     category: 'design',
     experience: 'Intermediate',
-    description: 'UI/UX Design, Prototyping, Components'
+    description: 'UI/UX Design, Prototyping, Components',
+    proficiencyLevel: 65
   },
   {
     id: 12,
@@ -117,7 +136,52 @@ const skills = [
     color: '#FF9900',
     category: 'devops',
     experience: 'Beginner',
-    description: 'S3, EC2, Lambda, CloudFront'
+    description: 'S3, EC2, Lambda, CloudFront',
+    proficiencyLevel: 50
+  },
+  {
+    id: 13,
+    name: 'Docker',
+    icon: 'docker',
+    iconType: 'fab',
+    color: '#2496ED',
+    category: 'devops',
+    experience: 'Intermediate',
+    description: 'Containerization, Docker Compose, Deployment',
+    proficiencyLevel: 68
+  },
+  {
+    id: 14,
+    name: 'Python',
+    icon: 'python',
+    iconType: 'fab',
+    color: '#3776AB',
+    category: 'backend',
+    experience: 'Intermediate',
+    description: 'Data Processing, Automation, Web Scraping',
+    proficiencyLevel: 72
+  },
+  {
+    id: 15,
+    name: 'GraphQL',
+    icon: 'project-diagram',
+    iconType: 'fas',
+    color: '#E535AB',
+    category: 'backend',
+    experience: 'Intermediate',
+    description: 'Queries, Mutations, Schema Design',
+    proficiencyLevel: 65
+  },
+  {
+    id: 16,
+    name: 'TailwindCSS',
+    icon: 'wind',
+    iconType: 'fas',
+    color: '#38B2AC',
+    category: 'frontend',
+    experience: 'Advanced',
+    description: 'Utility-First CSS, Responsive Design, Customization',
+    proficiencyLevel: 85
   }
 ];
 

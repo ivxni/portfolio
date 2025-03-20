@@ -9,7 +9,12 @@ import {
   faDatabase,
   faCubes,
   faServer,
-  faSearch
+  faSearch,
+  faProjectDiagram,
+  faWind,
+  faPaperPlane,
+  faCheckCircle,
+  faExclamationCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { 
   faGithub, 
@@ -23,7 +28,9 @@ import {
   faSass,
   faGitAlt,
   faFigma,
-  faAws
+  faAws,
+  faDocker,
+  faPython
 } from '@fortawesome/free-brands-svg-icons';
 
 // Add icons to the library so they're available in the app
@@ -39,6 +46,11 @@ library.add(
   faCubes,
   faServer,
   faSearch,
+  faProjectDiagram,
+  faWind,
+  faPaperPlane,
+  faCheckCircle,
+  faExclamationCircle,
   
   // Brand icons
   faGithub,
@@ -52,5 +64,7 @@ library.add(
   faSass,
   faGitAlt,
   faFigma,
-  faAws
+  faAws,
+  faDocker,
+  faPython
 ); 

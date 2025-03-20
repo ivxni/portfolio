@@ -2,23 +2,22 @@
 @import '../styles/mixins';
 
 .contact-page {
-  padding: $spacing-lg 0;
-  min-height: 100vh;
-
+  padding: 2rem 0 4rem;
+  
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 $spacing-md;
   }
-
-  .page-header {
+  
+  .contact-header {
     text-align: center;
     margin-bottom: $spacing-xl;
     
-    .page-title {
-      font-size: $font-size-xxl;
-      color: $text-primary;
-      margin-bottom: $spacing-sm;
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: $spacing-md;
+      color: $text-color;
       position: relative;
       display: inline-block;
       
@@ -28,169 +27,192 @@
         bottom: -10px;
         left: 50%;
         transform: translateX(-50%);
-        width: 60px;
+        width: 80px;
         height: 3px;
-        background-color: $accent-color;
+        background-color: $primary-color;
       }
     }
     
-    .page-description {
-      font-size: $font-size-lg;
-      color: $text-secondary;
-      max-width: 700px;
+    p {
+      max-width: 600px;
       margin: 0 auto;
+      color: $text-color-secondary;
       line-height: 1.6;
     }
   }
-
+  
   .contact-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: $spacing-xl;
-    max-width: 1000px;
-    margin: 0 auto;
     
     @include tablet {
       grid-template-columns: 1fr;
-      gap: $spacing-lg;
     }
   }
-
+  
   .contact-info {
     display: flex;
     flex-direction: column;
     gap: $spacing-lg;
     
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: $spacing-lg;
+    }
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+    
     .info-card {
-      background-color: $background-secondary;
+      background-color: $bg-light;
+      border-radius: $border-radius-lg;
       padding: $spacing-lg;
-      border-radius: 8px;
+      text-align: center;
+      box-shadow: $box-shadow-light;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       
       &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: $box-shadow;
       }
       
-      .card-icon {
+      .info-icon {
+        background-color: rgba($primary-color, 0.1);
+        color: $primary-color;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50px;
-        height: 50px;
-        background-color: rgba($accent-color, 0.1);
-        color: $accent-color;
-        border-radius: 50%;
-        margin-bottom: $spacing-md;
-        font-size: $font-size-lg;
+        margin: 0 auto $spacing-md;
+        font-size: 1.5rem;
       }
       
       h3 {
-        font-size: $font-size-md;
-        color: $text-primary;
-        margin-bottom: $spacing-xs;
+        font-size: 1.2rem;
+        margin-bottom: $spacing-sm;
+        color: $text-color;
       }
       
       p {
-        color: $text-secondary;
-        margin: 0;
-      }
-    }
-    
-    .social-links {
-      background-color: $background-secondary;
-      padding: $spacing-lg;
-      border-radius: 8px;
-      
-      h3 {
-        font-size: $font-size-md;
-        color: $text-primary;
+        color: $text-color-secondary;
         margin-bottom: $spacing-md;
       }
       
-      .social-icons {
-        display: flex;
-        gap: $spacing-md;
+      .info-link {
+        color: $primary-color;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+        transition: color 0.2s ease;
         
-        .social-icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 40px;
-          height: 40px;
-          background-color: $background-primary;
-          border-radius: 50%;
-          color: $text-primary;
-          font-size: $font-size-md;
-          transition: all 0.2s ease;
-          
-          &:hover {
-            background-color: $accent-color;
-            color: white;
-            transform: translateY(-3px);
-          }
+        &:hover {
+          color: darken($primary-color, 10%);
+          text-decoration: underline;
         }
       }
     }
   }
-
+  
   .contact-form-container {
-    background-color: $background-secondary;
-    padding: $spacing-xl;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background-color: $bg-light;
+    border-radius: $border-radius-lg;
+    padding: $spacing-lg;
+    box-shadow: $box-shadow-light;
     
     .form-message {
-      padding: $spacing-lg;
       text-align: center;
-      border-radius: 4px;
-      font-size: $font-size-md;
+      padding: $spacing-xl $spacing-md;
+      
+      .message-icon {
+        font-size: 3rem;
+        margin-bottom: $spacing-md;
+      }
       
       &.success {
-        background-color: rgba($success-color, 0.1);
-        color: $success-color;
-        border: 1px solid rgba($success-color, 0.2);
+        color: #28a745;
+        
+        .message-icon {
+          color: #28a745;
+        }
       }
       
       &.error {
-        background-color: rgba($error-color, 0.1);
-        color: $error-color;
-        border: 1px solid rgba($error-color, 0.2);
+        color: #dc3545;
+        
+        .message-icon {
+          color: #dc3545;
+        }
+      }
+      
+      p {
+        font-size: 1.1rem;
+        margin-bottom: $spacing-md;
+        line-height: 1.6;
+      }
+      
+      .try-again-btn {
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        padding: $spacing-sm $spacing-md;
+        border-radius: $border-radius;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
       }
     }
     
     .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: $spacing-md;
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-md;
+        
+        @include mobile {
+          grid-template-columns: 1fr;
+        }
+      }
       
       .form-group {
-        display: flex;
-        flex-direction: column;
+        margin-bottom: $spacing-md;
         
         label {
-          font-size: $font-size-sm;
-          font-weight: 500;
+          display: block;
           margin-bottom: $spacing-xs;
-          color: $text-primary;
+          font-weight: 500;
+          color: $text-color;
         }
         
         input, textarea {
+          width: 100%;
           padding: $spacing-sm $spacing-md;
           border: 1px solid $border-color;
-          border-radius: 4px;
-          background-color: $background-primary;
-          font-size: $font-size-md;
-          transition: border-color 0.2s, box-shadow 0.2s;
+          border-radius: $border-radius;
+          background-color: white;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          font-family: inherit;
           
           &:focus {
-            border-color: $accent-color;
+            border-color: $primary-color;
+            box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
             outline: none;
-            box-shadow: 0 0 0 2px rgba($accent-color, 0.2);
           }
           
           &.error {
-            border-color: $error-color;
+            border-color: #dc3545;
+            
+            &:focus {
+              box-shadow: 0 0 0 2px rgba(#dc3545, 0.2);
+            }
           }
         }
         
@@ -200,26 +222,32 @@
         }
         
         .error-message {
-          color: $error-color;
-          font-size: $font-size-sm;
+          display: block;
+          color: #dc3545;
+          font-size: 0.85rem;
           margin-top: $spacing-xs;
         }
       }
       
-      .submit-button {
-        margin-top: $spacing-sm;
-        padding: $spacing-md;
-        background-color: $accent-color;
-        border: none;
-        border-radius: 4px;
+      .submit-btn {
+        background-color: $primary-color;
         color: white;
-        font-size: $font-size-md;
+        border: none;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $border-radius;
         font-weight: 500;
+        font-size: 1rem;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        
+        .icon-right {
+          margin-left: $spacing-sm;
+        }
         
         &:hover {
-          background-color: darken($accent-color, 10%);
+          background-color: darken($primary-color, 10%);
           transform: translateY(-2px);
         }
         

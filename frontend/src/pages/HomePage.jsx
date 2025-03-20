@@ -3,42 +3,17 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import projects from '../data/projects';
 import skills from '../data/skills';
+import logo from '../assets/img/logo512.png';
 import './HomePage.scss';
 
 const HomePage = () => {
   // Get featured projects
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
   
-  // Get top skills for showcase
-  const topSkills = skills.slice(0, 8);
-  
-  // Helper function to determine skill progress percentage
-  const getSkillProgress = (experience) => {
-    switch(experience) {
-      case 'Beginner':
-        return '40%';
-      case 'Intermediate':
-        return '75%';
-      case 'Advanced':
-        return '95%';
-      default:
-        return '50%';
-    }
-  };
-  
-  // Helper function to determine progress bar color
-  const getProgressColor = (experience) => {
-    switch(experience) {
-      case 'Beginner':
-        return '#FFC107';
-      case 'Intermediate':
-        return '#4CAF50';
-      case 'Advanced':
-        return '#2196F3';
-      default:
-        return '#9E9E9E';
-    }
-  };
+  // Get top skills for showcase - Sort by proficiency first
+  const topSkills = [...skills]
+    .sort((a, b) => b.proficiencyLevel - a.proficiencyLevel)
+    .slice(0, 8);
 
   return (
     <div className="home-page">
@@ -73,24 +48,31 @@ const HomePage = () => {
                 key={skill.id}
                 style={{
                   '--icon-color': skill.color,
-                  '--progress-percent': getSkillProgress(skill.experience),
+                  '--progress-percent': `${skill.proficiencyLevel}%`,
                   '--progress-color': skill.color
                 }}
               >
                 <div className="skill-icon">
-                  <FontAwesomeIcon 
-                    icon={skill.iconType === 'fab' ? ['fab', skill.icon] : skill.icon} 
-                  />
+                  {skill.customLogo ? (
+                    <img src={skill.customLogo} alt={skill.name} className="custom-logo" />
+                  ) : (
+                    <FontAwesomeIcon 
+                      icon={skill.iconType === 'fab' ? ['fab', skill.icon] : skill.icon} 
+                    />
+                  )}
                 </div>
                 <h3 className="skill-name">{skill.name}</h3>
-                <div className="skill-level">{skill.experience}</div>
+                <div className="skill-level">
+                  <span className="level-text">{skill.experience}</span>
+                  <span className="level-percent">{skill.proficiencyLevel}%</span>
+                </div>
                 <div className="skill-progress-bar">
                   <div className="progress-fill"></div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="view-all-center" style={{ marginTop: '2rem', textAlign: 'center' }}>
+          <div className="view-all-center">
             <Link to="/skills" className="btn btn-secondary">View All Skills</Link>
           </div>
         </div>
@@ -145,11 +127,8 @@ const HomePage = () => {
               </p>
               <Link to="/skills" className="btn btn-primary">My Skills</Link>
             </div>
-            {/* Placeholder for photo or illustration */}
             <div className="about-image">
-              <div className="image-placeholder">
-                <span>Profile Image</span>
-              </div>
+              <img src={logo} alt="WebLabs Logo" className="logo" />
             </div>
           </div>
         </div>

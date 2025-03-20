@@ -1,172 +1,218 @@
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    slug: 'e-commerce-platform',
-    summary: 'A full-featured online shopping platform with user authentication, product catalog, cart, and payment processing.',
-    description: `
-      This e-commerce platform provides a complete online shopping experience with a clean, intuitive interface. 
-      It features user authentication, a comprehensive product catalog with search and filter functionalities, 
-      cart management, checkout process, and secure payment processing.
-      
-      The application was built with React for the frontend, utilizing context API for state management.
-      The backend was developed with Node.js and Express, with MongoDB as the database.
-      User authentication is handled with JWT tokens, and Stripe is integrated for payment processing.
-    `,
-    thumbnail: 'https://placehold.co/600x400/orange/white?text=E-Commerce',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Stripe', 'SCSS'],
-    liveUrl: 'https://example-ecommerce.com',
-    sourceCode: 'https://github.com/janedoe/ecommerce-platform',
-    images: [
-      'https://placehold.co/1200x800/orange/white?text=E-Commerce+Screenshot+1',
-      'https://placehold.co/1200x800/orange/white?text=E-Commerce+Screenshot+2',
-      'https://placehold.co/1200x800/orange/white?text=E-Commerce+Screenshot+3'
+    title: "E-Commerce Platform",
+    slug: "e-commerce-platform",
+    summary: "A full-featured e-commerce platform with user authentication, product management, and payment processing.",
+    description: "This project is a comprehensive e-commerce solution built with React, Node.js, and MongoDB. It features a responsive design, user authentication with JWT, product management for admins, a shopping cart system, and integration with Stripe for payment processing.\n\nThe application follows modern development practices including state management with Redux, component reusability, and responsive design for all device types. The backend API is RESTful and includes comprehensive error handling and data validation.",
+    thumbnail: "/images/projects/ecommerce-thumb.jpg",
+    gallery: [
+      "/images/projects/ecommerce-1.jpg",
+      "/images/projects/ecommerce-2.jpg",
+      "/images/projects/ecommerce-3.jpg",
     ],
-    featured: true,
-    completionDate: 'December 2023'
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Redux", "JWT", "Stripe API", "SCSS"],
+    features: [
+      "User registration and authentication",
+      "Product browsing with filtering and sorting",
+      "Shopping cart and wishlist functionality",
+      "Secure checkout with Stripe integration",
+      "Admin dashboard for product and order management",
+      "Responsive design for all device sizes"
+    ],
+    challenges: [
+      {
+        title: "State Management Complexity",
+        description: "Managing state across multiple components while handling asynchronous API calls and user interactions.",
+        solution: "Implemented Redux with thunk middleware to centralize state management and handle async operations cleanly."
+      },
+      {
+        title: "Payment Processing Security",
+        description: "Ensuring secure handling of payment information and preventing fraud.",
+        solution: "Used Stripe's secure elements to handle card information on the client side and webhook verification on the server."
+      }
+    ],
+    type: "Web Application",
+    client: "Personal Project",
+    duration: "3 months",
+    role: "Full Stack Developer",
+    demoLink: "https://ecommerce-demo.example.com",
+    sourceLink: "https://github.com/username/ecommerce-platform",
+    featured: true
   },
   {
     id: 2,
-    title: 'Task Management App',
-    slug: 'task-management-app',
-    summary: 'A productivity application for managing tasks with drag-and-drop, filtering, and calendar views.',
-    description: `
-      The Task Management App helps users organize their work efficiently with an intuitive and responsive interface.
-      Users can create projects, add tasks, set priorities, deadlines, and track progress.
-      
-      Key features include:
-      - Drag-and-drop task organization
-      - Multiple view options (list, kanban board, calendar)
-      - Task filtering and search
-      - Reminders and notifications
-      - Team collaboration options
-      
-      The frontend is built with React and uses Redux for state management.
-      The backend API is developed with Node.js and Express, with PostgreSQL as the database.
-    `,
-    thumbnail: 'https://placehold.co/600x400/5d87e5/white?text=Task+App',
-    technologies: ['React', 'Redux', 'Node.js', 'Express', 'PostgreSQL', 'Socket.io', 'SCSS'],
-    liveUrl: 'https://example-taskapp.com',
-    sourceCode: 'https://github.com/janedoe/task-management',
-    images: [
-      'https://placehold.co/1200x800/5d87e5/white?text=Task+App+Screenshot+1',
-      'https://placehold.co/1200x800/5d87e5/white?text=Task+App+Screenshot+2',
-      'https://placehold.co/1200x800/5d87e5/white?text=Task+App+Screenshot+3'
+    title: "Task Management Application",
+    slug: "task-management-app",
+    summary: "A collaborative task management tool with real-time updates and team functionality.",
+    description: "This task management application allows teams to collaborate effectively by organizing tasks, setting deadlines, and tracking progress. The application features real-time updates using WebSockets, drag-and-drop interfaces, and a clean, intuitive design.\n\nThe frontend is built with React and uses Context API for state management. The backend uses Node.js with Express and MongoDB, with Socket.io for real-time communication between clients.",
+    thumbnail: "/images/projects/taskmanager-thumb.jpg",
+    gallery: [
+      "/images/projects/taskmanager-1.jpg",
+      "/images/projects/taskmanager-2.jpg",
+      "/images/projects/taskmanager-3.jpg",
     ],
-    featured: true,
-    completionDate: 'August 2023'
+    technologies: ["React", "Context API", "Node.js", "Express", "MongoDB", "Socket.io", "CSS Grid"],
+    features: [
+      "Task creation, assignment, and tracking",
+      "Real-time updates across all team members",
+      "Kanban board with drag-and-drop interface",
+      "Deadline notifications and reminders",
+      "Team management and permission settings",
+      "Activity logs and task history"
+    ],
+    challenges: [
+      {
+        title: "Real-time Data Synchronization",
+        description: "Ensuring all users see the same task states in real-time without conflicts.",
+        solution: "Implemented Socket.io with a message queue system to handle concurrent updates and ensure data consistency."
+      },
+      {
+        title: "Performance with Many Tasks",
+        description: "Maintaining fast load times and smooth interactions when dealing with hundreds of tasks.",
+        solution: "Used virtualized lists and pagination combined with efficient MongoDB queries to optimize performance."
+      }
+    ],
+    type: "Web Application",
+    client: "Internal Tool",
+    duration: "2 months",
+    role: "Frontend Developer",
+    demoLink: "https://taskmanager-demo.example.com",
+    sourceLink: "https://github.com/username/task-management-app",
+    featured: true
   },
   {
     id: 3,
-    title: 'Weather Dashboard',
-    slug: 'weather-dashboard',
-    summary: 'A modern weather application with location-based forecasts, interactive maps, and historical data.',
-    description: `
-      The Weather Dashboard provides users with detailed weather information for any location around the world.
-      It features current conditions, hourly and 7-day forecasts, interactive maps, and historical weather data.
-      
-      Users can save favorite locations, receive severe weather alerts, and view detailed weather metrics like
-      humidity, wind speed, UV index, and precipitation probability.
-      
-      The application is built with React and uses the OpenWeatherMap API for weather data.
-      It features responsive design for optimal viewing on any device.
-    `,
-    thumbnail: 'https://placehold.co/600x400/59bfb4/white?text=Weather+App',
-    technologies: ['React', 'OpenWeatherMap API', 'Leaflet Maps', 'Chart.js', 'SCSS'],
-    liveUrl: 'https://example-weather.com',
-    sourceCode: 'https://github.com/janedoe/weather-dashboard',
-    images: [
-      'https://placehold.co/1200x800/59bfb4/white?text=Weather+App+Screenshot+1',
-      'https://placehold.co/1200x800/59bfb4/white?text=Weather+App+Screenshot+2',
-      'https://placehold.co/1200x800/59bfb4/white?text=Weather+App+Screenshot+3'
+    title: "Weather Dashboard",
+    slug: "weather-dashboard",
+    summary: "A clean and interactive weather dashboard with 7-day forecasts and location search.",
+    description: "This weather dashboard provides current conditions and forecasts for any location worldwide. Users can search for cities, save favorite locations, and view detailed weather information including temperature, humidity, wind speed, and more.\n\nThe application uses the OpenWeatherMap API for weather data and the Mapbox API for location services. It's built with a focus on clean UI and intuitive user experience.",
+    thumbnail: "/images/projects/weather-thumb.jpg",
+    gallery: [
+      "/images/projects/weather-1.jpg",
+      "/images/projects/weather-2.jpg",
     ],
-    featured: false,
-    completionDate: 'April 2023'
+    technologies: ["JavaScript", "HTML5", "CSS3", "OpenWeatherMap API", "Mapbox API", "LocalStorage"],
+    features: [
+      "Current weather conditions display",
+      "7-day weather forecast",
+      "Location search with autocomplete",
+      "Save favorite locations",
+      "Responsive design for mobile and desktop",
+      "Unit conversion (Celsius/Fahrenheit)"
+    ],
+    challenges: [
+      {
+        title: "API Rate Limiting",
+        description: "Handling API rate limits while ensuring the application remains responsive.",
+        solution: "Implemented caching strategy with localStorage to reduce API calls and added exponential backoff for retries."
+      }
+    ],
+    type: "Web Application",
+    duration: "3 weeks",
+    role: "Frontend Developer",
+    demoLink: "https://weather-demo.example.com",
+    sourceLink: "https://github.com/username/weather-dashboard",
+    featured: false
   },
   {
     id: 4,
-    title: 'Recipe Finder',
-    slug: 'recipe-finder',
-    summary: 'A recipe discovery application with search by ingredients, dietary preferences, and meal planning.',
-    description: `
-      Recipe Finder helps users discover new meals based on their available ingredients, dietary preferences, and nutritional goals.
-      The app includes thousands of recipes with detailed instructions, nutritional information, and user reviews.
-      
-      Key features include:
-      - Search by available ingredients
-      - Filter by dietary needs (vegetarian, vegan, gluten-free, etc.)
-      - Meal planning calendar
-      - Shopping list generator
-      - Save favorite recipes
-      
-      Built with React and Redux for the frontend, with a Node.js backend and MongoDB database.
-      It integrates with the Spoonacular API for recipe data.
-    `,
-    thumbnail: 'https://placehold.co/600x400/e55d87/white?text=Recipe+App',
-    technologies: ['React', 'Redux', 'Node.js', 'MongoDB', 'Spoonacular API', 'SCSS'],
-    liveUrl: 'https://example-recipes.com',
-    sourceCode: 'https://github.com/janedoe/recipe-finder',
-    images: [
-      'https://placehold.co/1200x800/e55d87/white?text=Recipe+App+Screenshot+1',
-      'https://placehold.co/1200x800/e55d87/white?text=Recipe+App+Screenshot+2',
-      'https://placehold.co/1200x800/e55d87/white?text=Recipe+App+Screenshot+3'
+    title: "Portfolio Website",
+    slug: "portfolio-website",
+    summary: "A modern, responsive portfolio website built with React and SCSS.",
+    description: "This portfolio website showcases my skills, projects, and professional experience in an engaging and interactive way. The website features smooth animations, responsive design, and intuitive navigation.\n\nThe site is built with React for the frontend, uses SCSS for styling, and implements various modern web development techniques to ensure optimal performance and user experience across all devices.",
+    thumbnail: "/images/projects/portfolio-thumb.jpg",
+    gallery: [
+      "/images/projects/portfolio-1.jpg",
+      "/images/projects/portfolio-2.jpg",
     ],
-    featured: true,
-    completionDate: 'February 2023'
+    technologies: ["React", "SCSS", "React Router", "Framer Motion", "Responsive Design"],
+    features: [
+      "Interactive project showcase",
+      "Skills visualization with progress indicators",
+      "Contact form with validation",
+      "Smooth page transitions and animations",
+      "Responsive design for all device sizes"
+    ],
+    challenges: [
+      {
+        title: "Balancing Aesthetics and Performance",
+        description: "Creating visually engaging animations without sacrificing load times and performance.",
+        solution: "Used code splitting, lazy loading, and optimized animations to maintain smooth performance while preserving visual appeal."
+      }
+    ],
+    type: "Website",
+    duration: "2 weeks",
+    role: "Frontend Developer",
+    demoLink: "https://portfolio-demo.example.com",
+    sourceLink: "https://github.com/username/portfolio-website",
+    featured: true
   },
   {
     id: 5,
-    title: 'Personal Budget Tracker',
-    slug: 'budget-tracker',
-    summary: 'A financial management application to track income, expenses, and savings goals with data visualization.',
-    description: `
-      The Personal Budget Tracker helps users manage their finances with intuitive tracking of income and expenses.
-      Users can categorize transactions, set budget limits, track savings goals, and visualize spending patterns.
-      
-      The application features detailed reports and charts for financial analysis, recurring transaction setup,
-      and customizable categories and tags for better organization.
-      
-      Built with React and TypeScript for the frontend, with a Node.js/Express backend and MongoDB database.
-      Chart.js is used for data visualization.
-    `,
-    thumbnail: 'https://placehold.co/600x400/4caf50/white?text=Budget+App',
-    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Chart.js', 'SCSS'],
-    liveUrl: 'https://example-budget.com',
-    sourceCode: 'https://github.com/janedoe/budget-tracker',
-    images: [
-      'https://placehold.co/1200x800/4caf50/white?text=Budget+App+Screenshot+1',
-      'https://placehold.co/1200x800/4caf50/white?text=Budget+App+Screenshot+2',
-      'https://placehold.co/1200x800/4caf50/white?text=Budget+App+Screenshot+3'
+    title: "Recipe Finder Application",
+    slug: "recipe-finder-app",
+    summary: "An application that helps users discover recipes based on available ingredients.",
+    description: "This recipe finder application allows users to input ingredients they have on hand and discover recipes they can make. It features advanced filtering options, recipe saving functionality, and nutritional information.\n\nThe application integrates with the Spoonacular API for recipe data and implements a clean, user-friendly interface designed to make cooking easier and more enjoyable.",
+    thumbnail: "/images/projects/recipe-thumb.jpg",
+    gallery: [
+      "/images/projects/recipe-1.jpg",
+      "/images/projects/recipe-2.jpg",
     ],
-    featured: false,
-    completionDate: 'November 2022'
+    technologies: ["JavaScript", "React", "CSS3", "Spoonacular API", "Firebase"],
+    features: [
+      "Ingredient-based recipe search",
+      "Dietary restriction filters (vegan, gluten-free, etc.)",
+      "Save favorite recipes",
+      "Nutritional information display",
+      "Step-by-step cooking instructions"
+    ],
+    challenges: [
+      {
+        title: "Complex Search Filtering",
+        description: "Implementing a flexible search system with multiple filter combinations.",
+        solution: "Developed a modular query builder that constructs API requests based on user selections and optimizes the search parameters."
+      }
+    ],
+    type: "Web Application",
+    duration: "1 month",
+    role: "Frontend Developer",
+    demoLink: "https://recipe-finder-demo.example.com",
+    sourceLink: "https://github.com/username/recipe-finder-app",
+    featured: false
   },
   {
     id: 6,
-    title: 'Fitness Tracker',
-    slug: 'fitness-tracker',
-    summary: 'A workout and nutrition tracking application with progress charts, exercise library, and personal records.',
-    description: `
-      The Fitness Tracker helps users reach their health and fitness goals by tracking workouts, nutrition, and progress.
-      Users can log workouts, track sets and reps, monitor body measurements, and track personal records.
-      
-      The app includes an extensive exercise library with instructions and video demonstrations, customizable workout plans,
-      and progress visualization with charts and graphs.
-      
-      Built with React Native for cross-platform mobile use, with a Node.js backend, MongoDB database,
-      and Firebase for authentication.
-    `,
-    thumbnail: 'https://placehold.co/600x400/9c27b0/white?text=Fitness+App',
-    technologies: ['React Native', 'Node.js', 'MongoDB', 'Firebase', 'Chart.js'],
-    liveUrl: 'https://example-fitness.com',
-    sourceCode: 'https://github.com/janedoe/fitness-tracker',
-    images: [
-      'https://placehold.co/1200x800/9c27b0/white?text=Fitness+App+Screenshot+1',
-      'https://placehold.co/1200x800/9c27b0/white?text=Fitness+App+Screenshot+2',
-      'https://placehold.co/1200x800/9c27b0/white?text=Fitness+App+Screenshot+3'
+    title: "Budget Tracker",
+    slug: "budget-tracker",
+    summary: "A personal finance application for tracking expenses and income with visual reports.",
+    description: "This budget tracking application helps users manage their personal finances by tracking income, expenses, and savings goals. It features interactive charts and reports to visualize spending patterns and financial progress.\n\nThe application is built with React for the frontend, Express and MongoDB for the backend, and uses Chart.js for data visualization. It implements secure user authentication and data privacy measures.",
+    thumbnail: "/images/projects/budget-thumb.jpg",
+    gallery: [
+      "/images/projects/budget-1.jpg",
+      "/images/projects/budget-2.jpg",
     ],
-    featured: false,
-    completionDate: 'September 2022'
+    technologies: ["React", "Express", "MongoDB", "Chart.js", "JWT", "CSS3"],
+    features: [
+      "Income and expense tracking",
+      "Category-based transaction organization",
+      "Budget setting and goal tracking",
+      "Interactive charts and financial reports",
+      "Recurring transaction automation"
+    ],
+    challenges: [
+      {
+        title: "Date-based Data Aggregation",
+        description: "Creating meaningful financial reports across different time periods with varying data densities.",
+        solution: "Implemented a flexible aggregation system that adapts to the selected time range and ensures consistent, meaningful visualizations."
+      }
+    ],
+    type: "Web Application",
+    duration: "2 months",
+    role: "Full Stack Developer",
+    demoLink: "https://budget-tracker-demo.example.com",
+    sourceLink: "https://github.com/username/budget-tracker",
+    featured: false
   }
 ];
 

@@ -2,329 +2,341 @@
 @import '../styles/mixins';
 
 .project-detail-page {
-  padding: $spacing-lg 0;
-  min-height: 100vh;
-
+  padding: 2rem 0 4rem;
+  
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 $spacing-md;
   }
-
-  .loading {
+  
+  .page-header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 70vh;
-    font-size: $font-size-lg;
-    color: $text-primary;
-  }
-
-  // Back button
-  .back-button {
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: $spacing-md;
-    color: $accent-color;
-    font-weight: 500;
-    transition: transform 0.2s, color 0.2s;
+    margin-bottom: $spacing-lg;
     
-    svg {
-      margin-right: $spacing-xs;
-      font-size: 0.9em;
-    }
-    
-    &:hover {
-      color: darken($accent-color, 10%);
-      transform: translateX(-5px);
-    }
-  }
-
-  // Project header
-  .project-header {
-    margin-bottom: $spacing-xl;
-    
-    .project-title {
-      font-size: $font-size-xxl;
-      margin-bottom: $spacing-sm;
-      color: $text-primary;
-      position: relative;
-      display: inline-block;
-      
-      &:after {
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        left: 0;
-        width: 60px;
-        height: 3px;
-        background-color: $accent-color;
-      }
-    }
-    
-    .project-summary {
-      font-size: $font-size-lg;
-      color: $text-secondary;
-      max-width: 800px;
-      margin-bottom: $spacing-lg;
-      line-height: 1.6;
-    }
-    
-    .project-meta {
+    .back-button {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      color: $text-color;
+      font-weight: 500;
+      margin-right: $spacing-lg;
+      transition: color 0.2s ease;
       
-      @include mobile {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: $spacing-md;
-      }
-      
-      .completion-date {
-        .meta-label {
-          font-weight: 600;
-          margin-right: $spacing-xs;
-          color: $text-primary;
-        }
-        
-        .meta-value {
-          color: $text-secondary;
-        }
-      }
-      
-      .project-links {
-        display: flex;
-        gap: $spacing-md;
-        
-        .project-link {
-          display: inline-flex;
-          align-items: center;
-          padding: $spacing-sm $spacing-md;
-          border-radius: 4px;
-          font-weight: 500;
-          transition: all 0.2s ease;
-          
-          svg {
-            margin-right: $spacing-xs;
-          }
-          
-          &.live-link {
-            background-color: $accent-color;
-            color: white;
-            
-            &:hover {
-              background-color: darken($accent-color, 10%);
-              transform: translateY(-2px);
-            }
-          }
-          
-          &.source-link {
-            background-color: #333;
-            color: white;
-            
-            &:hover {
-              background-color: #222;
-              transform: translateY(-2px);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // Project gallery
-  .project-gallery {
-    margin-bottom: $spacing-xl;
-    
-    .main-image {
-      position: relative;
-      margin-bottom: $spacing-md;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-        transition: transform 0.3s ease;
-      }
-      
-      .image-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        
-        .zoom-hint {
-          color: white;
-          background-color: rgba(0, 0, 0, 0.7);
-          padding: $spacing-sm $spacing-md;
-          border-radius: 4px;
-          font-weight: 500;
-        }
+      svg {
+        margin-right: $spacing-xs;
+        font-size: 0.9rem;
       }
       
       &:hover {
-        img {
-          transform: scale(1.02);
-        }
-        
-        .image-overlay {
-          opacity: 1;
-        }
+        color: $primary-color;
       }
     }
     
-    .image-thumbnails {
-      display: flex;
-      gap: $spacing-sm;
-      flex-wrap: wrap;
-      
-      .thumbnail {
-        width: 100px;
-        height: 70px;
-        border-radius: 4px;
-        overflow: hidden;
-        cursor: pointer;
-        opacity: 0.7;
-        transition: all 0.2s ease;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        
-        &:hover {
-          opacity: 0.9;
-          transform: translateY(-2px);
-        }
-        
-        &.active {
-          opacity: 1;
-          border: 2px solid $accent-color;
-          transform: translateY(-2px);
-        }
-      }
+    .project-title {
+      font-size: 2.5rem;
+      margin: 0;
+      color: $text-color;
+      font-weight: 700;
     }
   }
-
-  // Project details
-  .project-details {
+  
+  .project-banner {
+    width: 100%;
+    height: 400px;
+    margin-bottom: $spacing-xl;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $box-shadow;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+    
+    @include mobile {
+      height: 250px;
+    }
+  }
+  
+  .project-content {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 1fr;
     gap: $spacing-xl;
+    margin-bottom: $spacing-xl;
     
     @include tablet {
       grid-template-columns: 1fr;
-      gap: $spacing-lg;
     }
-    
-    .section-heading {
-      font-size: $font-size-lg;
+  }
+  
+  .project-info {
+    h2 {
+      font-size: 1.5rem;
       margin-bottom: $spacing-md;
-      color: $text-primary;
+      color: $text-color;
+      font-weight: 600;
+    }
+    
+    > div {
+      margin-bottom: $spacing-xl;
+    }
+  }
+  
+  .project-summary {
+    p {
+      margin-bottom: $spacing-md;
+      line-height: 1.7;
+      color: $text-color-secondary;
+    }
+  }
+  
+  .project-description {
+    p {
+      margin-bottom: $spacing-md;
+      line-height: 1.7;
+    }
+  }
+  
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    
+    .tech-tag {
+      background-color: rgba($primary-color, 0.1);
+      color: $primary-color;
+      padding: 0.4rem 0.8rem;
+      border-radius: $border-radius;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
+  
+  .features-list {
+    padding-left: $spacing-md;
+    
+    li {
+      margin-bottom: $spacing-sm;
+      line-height: 1.6;
       position: relative;
-      display: inline-block;
       
-      &:after {
-        content: '';
+      &::before {
+        content: "";
         position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 30px;
-        height: 2px;
-        background-color: $accent-color;
+        left: -$spacing-md;
+        top: 0.6rem;
+        width: 6px;
+        height: 6px;
+        background-color: $primary-color;
+        border-radius: 50%;
       }
     }
+  }
+  
+  .challenge-item {
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid $border-color;
     
-    .technologies-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: $spacing-xs;
-      
-      .technology-tag {
-        background-color: $background-secondary;
-        color: $text-primary;
-        padding: $spacing-xs $spacing-sm;
-        border-radius: 20px;
-        font-size: $font-size-sm;
-        
-        &:hover {
-          background-color: darken($background-secondary, 5%);
-        }
-      }
+    &:last-child {
+      border-bottom: none;
     }
     
-    .description-content {
-      color: $text-secondary;
-      line-height: 1.8;
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: $spacing-xs;
+      font-weight: 600;
+    }
+    
+    .solution {
+      margin-top: $spacing-xs;
+    }
+  }
+  
+  .project-sidebar {
+    .project-meta {
+      background-color: $bg-light;
+      border-radius: $border-radius-lg;
+      padding: $spacing-md;
+      margin-bottom: $spacing-lg;
+      box-shadow: $box-shadow-light;
       
-      p {
+      .meta-item {
         margin-bottom: $spacing-md;
         
         &:last-child {
           margin-bottom: 0;
         }
+        
+        h3 {
+          font-size: 0.9rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: $text-color-tertiary;
+          margin-bottom: $spacing-xs;
+        }
+        
+        p {
+          font-weight: 500;
+          color: $text-color;
+        }
+      }
+    }
+    
+    .project-links {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+      
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        
+        svg {
+          margin-right: $spacing-xs;
+        }
       }
     }
   }
-
-  // Image modal
-  .image-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: $spacing-md;
+  
+  .project-gallery {
+    margin-bottom: $spacing-xl;
     
-    .close-modal {
-      position: absolute;
-      top: $spacing-md;
-      right: $spacing-md;
-      background: none;
-      border: none;
-      color: white;
-      font-size: $font-size-xxl;
-      cursor: pointer;
-      z-index: 1010;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-      
-      &:hover {
-        opacity: 1;
-      }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: $spacing-md;
+      color: $text-color;
+      font-weight: 600;
     }
     
-    .modal-content {
-      max-width: 90%;
-      max-height: 90vh;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-md;
       
-      img {
-        max-width: 100%;
-        max-height: 90vh;
-        object-fit: contain;
-        display: block;
-        margin: 0 auto;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-item {
+        border-radius: $border-radius;
+        overflow: hidden;
+        box-shadow: $box-shadow-light;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: $box-shadow;
+        }
+        
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  
+  .related-projects {
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: $spacing-md;
+      color: $text-color;
+      font-weight: 600;
+    }
+    
+    .related-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-lg;
+      
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
+      
+      .related-project-card {
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        box-shadow: $box-shadow-light;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: $box-shadow;
+          
+          h3 {
+            color: $primary-color;
+          }
+        }
+        
+        .related-project-image {
+          height: 180px;
+          overflow: hidden;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+        }
+        
+        h3 {
+          font-size: 1.1rem;
+          margin: 0;
+          padding: $spacing-md;
+          color: $text-color;
+          font-weight: 600;
+          transition: color 0.2s ease;
+        }
+      }
+    }
+  }
+  
+  .project-not-found {
+    text-align: center;
+    padding: 5rem 0;
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: $spacing-md;
+    }
+    
+    p {
+      margin-bottom: $spacing-lg;
+      color: $text-color-secondary;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      
+      .icon-left {
+        margin-right: $spacing-xs;
       }
     }
   }

@@ -9,14 +9,20 @@ const NotFoundPage = () => {
       <div className="container">
         <div className="not-found-content">
           <h1 className="error-code">404</h1>
-          <h2 className="error-message">Page Not Found</h2>
-          <p className="error-description">
-            The page you're looking for doesn't exist or has been moved.
+          <h2 className="error-title">Page Not Found</h2>
+          <p className="error-message">
+            The page you are looking for doesn't exist or has been moved.
           </p>
-          <Link to="/" className="home-link">
-            <FontAwesomeIcon icon="home" />
-            <span>Back to Home</span>
-          </Link>
+          <div className="action-buttons">
+            <Link to="/" className="btn btn-primary">
+              <FontAwesomeIcon icon="home" className="icon-left" />
+              Back to Home
+            </Link>
+            <Link to="/contact" className="btn btn-secondary">
+              <FontAwesomeIcon icon="envelope" className="icon-left" />
+              Contact Me
+            </Link>
+          </div>
         </div>
       </div>
     </div>
