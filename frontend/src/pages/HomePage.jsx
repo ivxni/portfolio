@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import projects from '../data/projects';
@@ -7,6 +7,48 @@ import logo from '../assets/img/logo512.png';
 import './HomePage.scss';
 
 const HomePage = () => {
+  const heroRef = useRef(null);
+  
+  // Mouse parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!heroRef.current) return;
+      
+      const mouseX = e.clientX / window.innerWidth;
+      const mouseY = e.clientY / window.innerHeight;
+      
+      const shapes = heroRef.current.querySelectorAll('.shape');
+      const elements3d = heroRef.current.querySelectorAll('.element-3d');
+      
+      // Parallax for 3D elements
+      elements3d.forEach((element, index) => {
+        const depth = index * 0.2 + 0.5;
+        const moveX = (mouseX - 0.5) * depth * 50;
+        const moveY = (mouseY - 0.5) * depth * 50;
+        const rotate = (mouseX - 0.5) * depth * 20;
+        
+        element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) rotate(${rotate}deg)`;
+      });
+      
+      // Additional parallax for shapes
+      shapes.forEach((shape, index) => {
+        const depthFactor = 0.05 * (index + 1);
+        const translateX = (mouseX - 0.5) * depthFactor * 100;
+        const translateY = (mouseY - 0.5) * depthFactor * 100;
+        
+        // Get the current transform and add the parallax effect
+        const currentTransform = getComputedStyle(shape).transform;
+        shape.style.transform = `${currentTransform} translate(${translateX}px, ${translateY}px)`;
+      });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+  
   // Get featured projects
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
   
@@ -18,7 +60,28 @@ const HomePage = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section" ref={heroRef}>
+        <div className="floating-shapes">
+          <div className="shape"></div>
+          <div className="shape"></div>
+          <div className="shape"></div>
+          <div className="shape"></div>
+        </div>
+        
+        {/* 3D Elements */}
+        <div className="elements-3d">
+          <div className="element-3d cube">
+            <div className="cube-face front"></div>
+            <div className="cube-face back"></div>
+            <div className="cube-face left"></div>
+            <div className="cube-face right"></div>
+            <div className="cube-face top"></div>
+            <div className="cube-face bottom"></div>
+          </div>
+          <div className="element-3d sphere"></div>
+          <div className="element-3d prism"></div>
+        </div>
+        
         <div className="container">
           <div className="hero-content">
             <h1 className="hero-title">

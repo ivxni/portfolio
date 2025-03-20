@@ -86,7 +86,7 @@
 
 /* Section styles */
 .section {
-  padding: $spacing-2xl 0;
+  padding: $spacing-3xl 0;
 }
 
 .section-title {
@@ -95,15 +95,26 @@
   font-weight: 700;
   text-align: center;
   position: relative;
+  color: $text-primary;
   
   &::after {
     content: '';
-    display: block;
-    width: 50px;
+    position: absolute;
+    width: 60px;
     height: 3px;
     background-color: $accent-color;
-    margin: $spacing-sm auto 0;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
   }
+}
+
+.section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto $spacing-xl;
+  color: $text-secondary;
 }
 
 /* Grid */
@@ -149,4 +160,146 @@
 .pb-sm { padding-bottom: $spacing-sm; }
 .pb-md { padding-bottom: $spacing-md; }
 .pb-lg { padding-bottom: $spacing-lg; }
-.pb-xl { padding-bottom: $spacing-xl; } 
+.pb-xl { padding-bottom: $spacing-xl; }
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-primary;
+  color: $text-primary;
+  background-color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: $accent-color;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: darken($accent-color, 10%);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+// Button styles
+.btn {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-size: $font-size-md;
+  line-height: 1.5;
+  border: none;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &.btn-primary {
+    background-color: $accent-color;
+    color: #ffffff;
+    
+    &:hover {
+      background-color: darken($accent-color, 10%);
+      color: #ffffff;
+    }
+  }
+  
+  &.btn-secondary {
+    background-color: transparent;
+    color: $accent-color;
+    border: 1px solid $accent-color;
+    
+    &:hover {
+      background-color: rgba($accent-color, 0.1);
+      color: $accent-color;
+    }
+  }
+  
+  &.btn-outline {
+    background-color: transparent;
+    border: 1px solid $border-color;
+    color: $text-primary;
+    
+    &:hover {
+      border-color: $accent-color;
+      color: $accent-color;
+    }
+  }
+}
+
+// Main content area
+.main-content {
+  min-height: calc(100vh - 180px); // Accounting for header and footer heights
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lighten($accent-color, 20%);
+  border-radius: 5px;
+  
+  &:hover {
+    background: $accent-color;
+  }
+}
+
+// Animation classes
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Custom selection color
+::selection {
+  background-color: rgba($accent-color, 0.3);
+  color: $text-primary;
+} 
