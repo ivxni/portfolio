@@ -1,0 +1,152 @@
+// Import variables and mixins
+@import './variables';
+@import './mixins';
+@import './animations';
+@import './reset';
+
+// Global styles
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* Adjusted to account for fixed header */
+  padding-bottom: $spacing-xl;
+}
+
+.container {
+  @include container;
+}
+
+/* Typography utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-accent {
+  color: $accent-color;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+/* Heading styles */
+.heading-xl {
+  font-size: $font-size-4xl;
+  margin-bottom: $spacing-lg;
+  
+  @include respond-to(md) {
+    font-size: $font-size-3xl;
+  }
+}
+
+.heading-lg {
+  font-size: $font-size-3xl;
+  margin-bottom: $spacing-md;
+  
+  @include respond-to(md) {
+    font-size: $font-size-xxl;
+  }
+}
+
+.heading-md {
+  font-size: $font-size-xxl;
+  margin-bottom: $spacing-md;
+  
+  @include respond-to(md) {
+    font-size: $font-size-xl;
+  }
+}
+
+.heading-sm {
+  font-size: $font-size-xl;
+  margin-bottom: $spacing-sm;
+  
+  @include respond-to(md) {
+    font-size: $font-size-lg;
+  }
+}
+
+/* Button utilities */
+.btn {
+  @include button-base;
+}
+
+.btn-primary {
+  @include button-primary;
+}
+
+.btn-secondary {
+  @include button-secondary;
+}
+
+/* Section styles */
+.section {
+  padding: $spacing-2xl 0;
+}
+
+.section-title {
+  margin-bottom: $spacing-xl;
+  font-size: $font-size-xxl;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: $accent-color;
+    margin: $spacing-sm auto 0;
+  }
+}
+
+/* Grid */
+.grid {
+  @include grid(1, $spacing-md);
+  
+  @include respond-to(sm) {
+    @include grid(2, $spacing-md);
+  }
+  
+  @include respond-to(lg) {
+    @include grid(3, $spacing-md);
+  }
+}
+
+/* Responsive Images */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Margin utilities */
+.mt-xs { margin-top: $spacing-xs; }
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+.mt-xl { margin-top: $spacing-xl; }
+
+.mb-xs { margin-bottom: $spacing-xs; }
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+.mb-xl { margin-bottom: $spacing-xl; }
+
+/* Padding utilities */
+.pt-xs { padding-top: $spacing-xs; }
+.pt-sm { padding-top: $spacing-sm; }
+.pt-md { padding-top: $spacing-md; }
+.pt-lg { padding-top: $spacing-lg; }
+.pt-xl { padding-top: $spacing-xl; }
+
+.pb-xs { padding-bottom: $spacing-xs; }
+.pb-sm { padding-bottom: $spacing-sm; }
+.pb-md { padding-bottom: $spacing-md; }
+.pb-lg { padding-bottom: $spacing-lg; }
+.pb-xl { padding-bottom: $spacing-xl; } 

@@ -1,0 +1,148 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.footer {
+  background-color: $light-gray;
+  padding: $spacing-2xl 0 $spacing-lg;
+  margin-top: $spacing-2xl;
+  
+  .container {
+    @include flex-column;
+  }
+}
+
+.contact-section {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  
+  .contact-text {
+    max-width: 600px;
+    margin: 0 auto $spacing-lg;
+    color: $gray-text;
+  }
+}
+
+.contact-methods {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-lg;
+  
+  .contact-method {
+    display: flex;
+    align-items: center;
+    background-color: $light-bg;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-md;
+    @include box-shadow(1);
+    @include transition;
+    
+    &:hover {
+      transform: translateY(-3px);
+      @include box-shadow(2);
+      color: $accent-color;
+    }
+    
+    svg {
+      margin-right: $spacing-sm;
+      color: $accent-color;
+    }
+  }
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-xl;
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    margin: 0 $spacing-sm;
+    background-color: $medium-gray;
+    color: $dark-gray;
+    border-radius: $border-radius-circle;
+    @include transition;
+    
+    svg {
+      font-size: $font-size-lg;
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      
+      // GitHub
+      &:nth-child(1) {
+        background-color: #24292e;
+        color: $light-text;
+      }
+      
+      // LinkedIn
+      &:nth-child(2) {
+        background-color: #0a66c2;
+        color: $light-text;
+      }
+      
+      // Twitter
+      &:nth-child(3) {
+        background-color: #1da1f2;
+        color: $light-text;
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid $medium-gray;
+  padding-top: $spacing-lg;
+  
+  @include respond-to(md) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .copyright {
+    font-size: $font-size-sm;
+    color: $gray-text;
+    margin-bottom: $spacing-sm;
+    
+    @include respond-to(md) {
+      margin-bottom: 0;
+      order: 0;
+    }
+  }
+  
+  .footer-nav {
+    display: flex;
+    margin-bottom: $spacing-sm;
+    
+    @include respond-to(md) {
+      margin-bottom: 0;
+      order: 1;
+    }
+    
+    .footer-nav-link {
+      margin: 0 $spacing-sm;
+      font-size: $font-size-sm;
+      color: $gray-text;
+      @include transition;
+      
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+  
+  .made-with {
+    font-size: $font-size-xs;
+    color: $gray-text;
+    
+    @include respond-to(md) {
+      order: 2;
+    }
+  }
+} 

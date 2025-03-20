@@ -1,0 +1,69 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.not-found-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: $spacing-lg 0;
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+  }
+  
+  .not-found-content {
+    text-align: center;
+    
+    .error-code {
+      font-size: 120px;
+      font-weight: 700;
+      color: $accent-color;
+      margin: 0;
+      line-height: 1;
+      opacity: 0.8;
+      
+      @include mobile {
+        font-size: 80px;
+      }
+    }
+    
+    .error-message {
+      font-size: $font-size-xxl;
+      color: $text-primary;
+      margin: $spacing-sm 0 $spacing-lg;
+    }
+    
+    .error-description {
+      font-size: $font-size-md;
+      color: $text-secondary;
+      margin-bottom: $spacing-xl;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      padding: $spacing-sm $spacing-lg;
+      background-color: $accent-color;
+      color: white;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      
+      svg {
+        margin-right: $spacing-sm;
+      }
+      
+      &:hover {
+        background-color: darken($accent-color, 10%);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+} 
