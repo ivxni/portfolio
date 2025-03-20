@@ -74,7 +74,7 @@ const HomePage = () => {
                 style={{
                   '--icon-color': skill.color,
                   '--progress-percent': getSkillProgress(skill.experience),
-                  '--progress-color': getProgressColor(skill.experience)
+                  '--progress-color': skill.color
                 }}
               >
                 <div className="skill-icon">
