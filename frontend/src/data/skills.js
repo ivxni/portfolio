@@ -14,7 +14,7 @@ const skills = [
     category: 'frontend',
     experience: 'Advanced',
     description: 'Semantic HTML, Accessibility, Forms',
-    proficiencyLevel: 95 // Prozentsatz der Fähigkeit
+    proficiencyLevel: 100 // Prozentsatz der Fähigkeit
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const skills = [
     category: 'frontend',
     experience: 'Advanced',
     description: 'Flexbox, Grid, Animations, Responsive Design',
-    proficiencyLevel: 90
+    proficiencyLevel: 100
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const skills = [
     category: 'frontend',
     experience: 'Advanced',
     description: 'ES6+, DOM Manipulation, Async/Await',
-    proficiencyLevel: 92
+    proficiencyLevel: 95
   },
   {
     id: 4,
@@ -47,25 +47,24 @@ const skills = [
     category: 'frontend',
     experience: 'Advanced',
     description: 'Hooks, Context API, Custom Hooks',
-    proficiencyLevel: 88
+    proficiencyLevel: 95
   },
   {
     id: 5,
     name: 'Node.js',
     icon: 'node-js',
     iconType: 'fab',
-    color: '#339933',
+    color: '#83CD29',
     category: 'backend',
-    experience: 'Intermediate',
+    experience: 'Advanced',
     description: 'Express, RESTful APIs, Middleware',
-    proficiencyLevel: 80
+    proficiencyLevel: 90
   },
   {
     id: 6,
     name: 'MongoDB',
     icon: 'database',
     iconType: 'fas',
-    // customLogo: mongodbLogo, // Beispiel für ein benutzerdefiniertes Logo
     color: '#47A248',
     category: 'backend',
     experience: 'Intermediate',
@@ -81,18 +80,18 @@ const skills = [
     category: 'frontend',
     experience: 'Advanced',
     description: 'Variables, Mixins, Functions, Architecture',
-    proficiencyLevel: 85
+    proficiencyLevel: 95
   },
   {
-    id: 8,
-    name: 'Git',
-    icon: 'git-alt',
+    id: 14,
+    name: 'Python',
+    icon: 'python',
     iconType: 'fab',
-    color: '#F05032',
-    category: 'tools',
+    color: '#3776AB',
+    category: 'backend',
     experience: 'Intermediate',
-    description: 'Version Control, Branching, Pull Requests',
-    proficiencyLevel: 78
+    description: 'Data Processing, Automation, Web Scraping',
+    proficiencyLevel: 50
   },
   {
     id: 9,
@@ -151,15 +150,15 @@ const skills = [
     proficiencyLevel: 68
   },
   {
-    id: 14,
-    name: 'Python',
-    icon: 'python',
-    iconType: 'fab',
-    color: '#3776AB',
-    category: 'backend',
-    experience: 'Intermediate',
-    description: 'Data Processing, Automation, Web Scraping',
-    proficiencyLevel: 72
+    id: 17,
+    name: 'C++',
+    icon: 'code',
+    iconType: 'fas',
+    color: '#00599C',
+    category: 'programming',
+    experience: 'Beginner',
+    description: 'Object-Oriented Programming, Memory Management, Data Structures',
+    proficiencyLevel: 22
   },
   {
     id: 15,
@@ -171,17 +170,6 @@ const skills = [
     experience: 'Intermediate',
     description: 'Queries, Mutations, Schema Design',
     proficiencyLevel: 65
-  },
-  {
-    id: 16,
-    name: 'TailwindCSS',
-    icon: 'wind',
-    iconType: 'fas',
-    color: '#38B2AC',
-    category: 'frontend',
-    experience: 'Advanced',
-    description: 'Utility-First CSS, Responsive Design, Customization',
-    proficiencyLevel: 85
   }
 ];
 

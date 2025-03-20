@@ -408,7 +408,7 @@
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.1);
         color: white;
         
         &:hover {
@@ -642,11 +642,34 @@
       font-size: 2.5rem;
       color: var(--icon-color, $accent-color);
       margin-bottom: $spacing-sm;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       
-      .custom-logo {
-        width: 50px;
-        height: 50px;
+      .custom-logo, .skill-logo {
+        width: 45px;
+        height: 45px;
         object-fit: contain;
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.15));
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+      
+      .skill-logo {
+        /* SVG-specific styling */
+        filter: drop-shadow(0 0 3px var(--icon-color, $accent-color));
+      }
+      
+      svg {
+        width: 45px;
+        height: 45px;
+      }
+      
+      &:hover {
+        .custom-logo, .skill-logo {
+          transform: scale(1.1);
+          filter: drop-shadow(0 0 8px var(--icon-color, $accent-color));
+        }
       }
     }
     

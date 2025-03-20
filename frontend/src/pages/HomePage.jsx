@@ -4,6 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import projects from '../data/projects';
 import skills from '../data/skills';
 import logo from '../assets/img/logo512.png';
+// Import SVG logos for popular technologies
+import reactLogo from '../assets/logos/react.svg';
+import jsLogo from '../assets/logos/javascript.svg';
+import htmlLogo from '../assets/logos/html5.svg';
+import cssLogo from '../assets/logos/css3.svg';
+import nodeLogo from '../assets/logos/nodejs.svg';
+import mongoLogo from '../assets/logos/mongodb.svg';
+import sassLogo from '../assets/logos/sass.svg';
+import typescriptLogo from '../assets/logos/typescript.svg';
+import pythonLogo from '../assets/logos/python.svg';
+import cppLogo from '../assets/logos/cpp.svg';
 import './HomePage.scss';
 
 const HomePage = () => {
@@ -53,9 +64,56 @@ const HomePage = () => {
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
   
   // Get top skills for showcase - Sort by proficiency first
-  const topSkills = [...skills]
-    .sort((a, b) => b.proficiencyLevel - a.proficiencyLevel)
-    .slice(0, 8);
+  // Reorder skills to make sure HTML and CSS are the first two items
+  const arrangeSkills = (a, b) => {
+    // First priority: Place specific skills in desired order
+    if (a.name === 'HTML5') return -1;
+    if (b.name === 'HTML5') return 1;
+    if (a.name === 'CSS3') return -1;
+    if (b.name === 'CSS3') return 1;
+    if (a.name === 'JavaScript') return -1;
+    if (b.name === 'JavaScript') return 1;
+    if (a.name === 'React') return -1;
+    if (b.name === 'React') return 1;
+    if (a.name === 'Sass/SCSS') return -1;
+    if (b.name === 'Sass/SCSS') return 1;
+    if (a.name === 'Node.js') return -1;
+    if (b.name === 'Node.js') return 1;
+    if (a.name === 'Python') return -1;
+    if (b.name === 'Python') return 1;
+    if (a.name === 'C++') return -1;
+    if (b.name === 'C++') return 1;
+    
+    // Second priority: Sort by proficiency level
+    if (a.proficiencyLevel !== b.proficiencyLevel) {
+      return b.proficiencyLevel - a.proficiencyLevel;
+    }
+    
+    // Third priority: Sort alphabetically
+    return a.name.localeCompare(b.name);
+  };
+  
+  const reorderedSkills = [...skills].sort(arrangeSkills);
+  
+  const topSkills = reorderedSkills.slice(0, 8);
+
+  // Function to get the appropriate logo for skills
+  const getSkillLogo = (skill) => {
+    // Map skill names to imported SVG logos
+    const logoMap = {
+      'React': reactLogo,
+      'JavaScript': jsLogo,
+      'HTML5': htmlLogo,
+      'CSS3': cssLogo,
+      'Node.js': nodeLogo,
+      'C++': cppLogo,
+      'Sass/SCSS': sassLogo,
+      'TypeScript': typescriptLogo,
+      'Python': pythonLogo,
+    };
+    
+    return logoMap[skill.name];
+  };
 
   return (
     <div className="home-page">
@@ -116,7 +174,9 @@ const HomePage = () => {
                 }}
               >
                 <div className="skill-icon">
-                  {skill.customLogo ? (
+                  {getSkillLogo(skill) ? (
+                    <img src={getSkillLogo(skill)} alt={skill.name} className="skill-logo" />
+                  ) : skill.customLogo ? (
                     <img src={skill.customLogo} alt={skill.name} className="custom-logo" />
                   ) : (
                     <FontAwesomeIcon 
