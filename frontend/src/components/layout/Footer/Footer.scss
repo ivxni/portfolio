@@ -102,7 +102,7 @@
   
   @include respond-to(md) {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
   }
   
   .copyright {
@@ -134,15 +134,6 @@
       &:hover {
         color: $accent-color;
       }
-    }
-  }
-  
-  .made-with {
-    font-size: $font-size-xs;
-    color: $gray-text;
-    
-    @include respond-to(md) {
-      order: 2;
     }
   }
 } 

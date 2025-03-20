@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Header.scss';
+import logo from '../../../assets/img/logo512.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,9 +35,12 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container header-container">
-        <Link to="/" className="logo" onClick={closeMobileMenu}>
-          <span className="name">Jane Doe</span>
-          <span className="title">Full Stack Developer</span>
+        <Link to="/" className="logo-container" onClick={closeMobileMenu}>
+          <img src={logo} alt="Logo" className="logo-image" />
+          <div className="logo-text">
+            <span className="name">WebLabs</span>
+            <span className="title">Full Stack Developer</span>
+          </div>
         </Link>
 
         <button 
