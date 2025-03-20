@@ -119,12 +119,6 @@ const HomePage = () => {
     <div className="home-page">
       {/* Hero Section */}
       <section className="hero-section" ref={heroRef}>
-        <div className="floating-shapes">
-          <div className="shape"></div>
-          <div className="shape"></div>
-          <div className="shape"></div>
-          <div className="shape"></div>
-        </div>
         
         {/* 3D Elements */}
         <div className="elements-3d">
@@ -136,8 +130,6 @@ const HomePage = () => {
             <div className="cube-face top"></div>
             <div className="cube-face bottom"></div>
           </div>
-          <div className="element-3d sphere"></div>
-          <div className="element-3d prism"></div>
         </div>
         
         <div className="container">

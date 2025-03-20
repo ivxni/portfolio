@@ -12,11 +12,41 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #0a0a0a;
+  background-image: url('../assets/img/mesh-459.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: auto;
   position: relative;
   overflow: hidden;
   padding-bottom: 0;
   margin-bottom: 0;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #000000);
+    z-index: 10;
+    pointer-events: none;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+  }
   
   .floating-shapes {
     position: absolute;
@@ -29,8 +59,7 @@
     
     .shape {
       position: absolute;
-      filter: blur(120px);
-      opacity: 0.08;
+      opacity: 0.2;
       will-change: transform;
       
       &:nth-child(1) {
@@ -106,9 +135,7 @@
           width: 100%;
           height: 100%;
           background-color: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
+          border: 2px solid rgba(255, 255, 255, 0.05);
           
           &.front {
             transform: translateZ(40px);
@@ -143,10 +170,8 @@
         bottom: 30%;
         left: 25%;
         background-color: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.05);
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
         animation: float-sphere 15s infinite alternate ease-in-out;
       }
       
@@ -166,8 +191,6 @@
           height: 100%;
           background-color: rgba(255, 255, 255, 0.02);
           border: 1px solid rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
         }
         
         &::before {
@@ -245,17 +268,15 @@
   .hero-content {
     max-width: 100%;
     padding: $spacing-2xl;
-    background-color: rgba(18, 18, 18, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background-color: rgba(10, 10, 10, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 
-      0 40px 80px rgba(0, 0, 0, 0.4),
-      0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
     animation: hero-content-entrance 1s ease-out forwards;
     position: relative;
-    overflow: hidden;
+
     
     @include tablet {
       padding: $spacing-xl;
@@ -599,12 +620,14 @@
 
 /* Skills Section */
 .home-skills-section {
-  background-color: #0a0a0a;
-  padding: $spacing-2xl 0;
+  position: relative;
+  z-index: 5;
+  padding-top: 3rem;
+  background-color: #000000;
   margin-top: 0;
   
   .section-title {
-    color: #ffffff;
+    color: #f8f8f8;
   }
   
   .skills-grid {
@@ -624,14 +647,16 @@
   
   .skill-card {
     padding: $spacing-md;
-    background-color: rgba(30, 30, 30, 0.7);
+    background-color: rgba(10, 10, 10, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.05);
     
     &:hover {
       transform: translateY(-5px);
