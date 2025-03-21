@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import projects from '../data/projects';
 import skills from '../data/skills';
-import logo from '../assets/img/logo512.png';
+import logo from '../assets/img/LogoFullx512NEW.png';
 // Import SVG logos for popular technologies
 import reactLogo from '../assets/logos/react.svg';
 import jsLogo from '../assets/logos/javascript.svg';
@@ -58,9 +58,6 @@ const HomePage = () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
-  
-  // Get featured projects
-  const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
   
   // Get top skills for showcase - Sort by proficiency first
   // Reorder skills to make sure HTML and CSS are the first two items
@@ -197,25 +194,41 @@ const HomePage = () => {
         <div className="container">
           <h2 className="section-title">Featured Projects</h2>
           <div className="featured-projects">
-            {featuredProjects.map(project => (
-              <div className="featured-project-card" key={project.id}>
-                <div className="project-image">
-                  <img src={project.thumbnail} alt={project.title} />
-                </div>
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-summary">{project.summary}</p>
-                  <div className="project-technologies">
-                    {project.technologies.slice(0, 4).map((tech, index) => (
-                      <span className="technology-tag" key={index}>{tech}</span>
-                    ))}
-                  </div>
-                  <Link to={`/projects/${project.slug}`} className="project-link">
-                    View Project
-                  </Link>
-                </div>
+            <div className="featured-project-card">
+              <div className="project-image">
+                <img src={projects[0].thumbnail} alt={projects[0].title} />
               </div>
-            ))}
+              <div className="project-content">
+                <h3 className="project-title">{projects[0].title}</h3>
+                <p className="project-summary">{projects[0].summary}</p>
+                <div className="project-technologies">
+                  {projects[0].technologies.slice(0, 4).map((tech, index) => (
+                    <span className="technology-tag" key={index}>{tech}</span>
+                  ))}
+                </div>
+                <Link to={`/projects/${projects[0].slug}`} className="project-link">
+                  View Project
+                </Link>
+              </div>
+            </div>
+            
+            <div className="featured-project-card">
+              <div className="project-image">
+                <img src={projects[1].thumbnail} alt={projects[1].title} />
+              </div>
+              <div className="project-content">
+                <h3 className="project-title">{projects[1].title}</h3>
+                <p className="project-summary">{projects[1].summary}</p>
+                <div className="project-technologies">
+                  {projects[1].technologies.slice(0, 4).map((tech, index) => (
+                    <span className="technology-tag" key={index}>{tech}</span>
+                  ))}
+                </div>
+                <Link to={`/projects/${projects[1].slug}`} className="project-link">
+                  View Project
+                </Link>
+              </div>
+            </div>
           </div>
           <div className="view-all-projects">
             <Link to="/projects" className="btn btn-secondary">View All Projects</Link>
@@ -230,19 +243,45 @@ const HomePage = () => {
           <div className="about-content">
             <div className="about-text">
               <p>
-                I'm a passionate full stack developer with expertise in modern web technologies. 
-                With a focus on creating clean, efficient, and user-friendly applications, 
-                I enjoy tackling complex problems and turning ideas into reality.
+                I'm a 22-year-old Full Stack Developer from Germany with a passion for creating
+                clean, efficient, and user-friendly web applications. My journey in software development
+                began early – I've been fascinated with technology since childhood, constantly 
+                driven by the desire to bring my ideas to life through code.
               </p>
               <p>
-                My experience spans front-end development with React, back-end systems with Node.js, 
-                and database management. I'm constantly learning and exploring new technologies 
-                to expand my skill set and improve my craft.
+                With 3 years of professional experience, I've developed strong expertise in 
+                modern web technologies across the full stack. I'm particularly skilled in React, 
+                Node.js, and database design, complemented by a good eye for UI/UX design.
+                I completed an apprenticeship at diconium, where I gained valuable experience working
+                in agile teams using Scrum methodology.
               </p>
-              <Link to="/skills" className="btn btn-primary">My Skills</Link>
+              <p>
+                I thrive both as an independent developer and as a team player, bringing creativity and
+                technical knowledge to every project. I'm also experienced with AI development and prompt
+                engineering. My continuous pursuit of improvement and my genuine enthusiasm for what I do
+                drive me to deliver high-quality solutions that exceed expectations.
+              </p>
+              <div className="about-buttons">
+                <Link to="/skills" className="btn btn-primary">My Skills</Link>
+                <Link to="/contact" className="btn btn-secondary">Contact Me</Link>
+              </div>
             </div>
             <div className="about-image">
               <img src={logo} alt="WebLabs Logo" className="logo" />
+              <div className="about-highlights">
+                <div className="highlight-item">
+                  <span className="highlight-number">3+</span>
+                  <span className="highlight-text">Years Experience</span>
+                </div>
+                <div className="highlight-item">
+                  <span className="highlight-number">15+</span>
+                  <span className="highlight-text">Technologies</span>
+                </div>
+                <div className="highlight-item">
+                  <span className="highlight-number">10+</span>
+                  <span className="highlight-text">Projects</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
