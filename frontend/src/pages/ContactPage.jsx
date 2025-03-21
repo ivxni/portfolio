@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ContactPage.scss';
 
@@ -17,6 +17,11 @@ const ContactPage = () => {
   });
 
   const [formErrors, setFormErrors] = useState({});
+
+  // Adding useEffect to ensure page scrolls to top when component loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const validateForm = () => {
     const errors = {};

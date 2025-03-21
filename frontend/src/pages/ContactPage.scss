@@ -2,7 +2,11 @@
 @import '../styles/mixins';
 
 .contact-page {
-  padding: 2rem 0 4rem;
+  padding: $spacing-3xl 0;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  min-height: 100vh;
+  padding-top: calc(80px + $spacing-3xl); /* Zusätzliches Padding für den Header */
   
   .container {
     max-width: 1200px;
@@ -12,16 +16,16 @@
   
   .contact-header {
     text-align: center;
-    margin-bottom: $spacing-xl;
+    margin-bottom: $spacing-2xl;
     
     h1 {
-      font-size: 2.5rem;
+      font-size: $font-size-3xl;
+      font-weight: 700;
       margin-bottom: $spacing-md;
-      color: $text-color;
       position: relative;
       display: inline-block;
       
-      &:after {
+      &::after {
         content: '';
         position: absolute;
         bottom: -10px;
@@ -29,14 +33,16 @@
         transform: translateX(-50%);
         width: 80px;
         height: 3px;
-        background-color: $primary-color;
+        background-color: $accent-color;
+        border-radius: 2px;
       }
     }
     
     p {
-      max-width: 600px;
-      margin: 0 auto;
-      color: $text-color-secondary;
+      max-width: 700px;
+      margin: $spacing-lg auto 0;
+      font-size: $font-size-lg;
+      color: #bbbbbb;
       line-height: 1.6;
     }
   }
@@ -44,10 +50,11 @@
   .contact-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: $spacing-xl;
+    gap: $spacing-2xl;
     
     @include tablet {
       grid-template-columns: 1fr;
+      gap: $spacing-xl;
     }
   }
   
@@ -57,116 +64,142 @@
     gap: $spacing-lg;
     
     @include tablet {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin-bottom: $spacing-lg;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     
     @include mobile {
-      grid-template-columns: 1fr;
+      flex-direction: column;
     }
     
     .info-card {
-      background-color: $bg-light;
-      border-radius: $border-radius-lg;
+      background-color: rgba(30, 30, 30, 0.5);
       padding: $spacing-lg;
+      border-radius: 16px;
       text-align: center;
-      box-shadow: $box-shadow-light;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.05);
+      
+      @include tablet {
+        flex: 1;
+        min-width: 200px;
+        max-width: 280px;
+      }
       
       &:hover {
         transform: translateY(-5px);
-        box-shadow: $box-shadow;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
       }
       
       .info-icon {
-        background-color: rgba($primary-color, 0.1);
-        color: $primary-color;
         width: 60px;
         height: 60px;
         border-radius: 50%;
+        background-color: rgba($accent-color, 0.15);
+        color: $accent-color;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
         margin: 0 auto $spacing-md;
-        font-size: 1.5rem;
+        font-size: $font-size-xl;
+        transition: all 0.3s ease;
+        
+        svg {
+          filter: drop-shadow(0 0 5px rgba($accent-color, 0.5));
+        }
+      }
+      
+      &:hover .info-icon {
+        background-color: rgba($accent-color, 0.25);
+        transform: scale(1.1);
       }
       
       h3 {
-        font-size: 1.2rem;
+        font-size: $font-size-lg;
+        font-weight: 600;
         margin-bottom: $spacing-sm;
-        color: $text-color;
+        color: #ffffff;
       }
       
       p {
-        color: $text-color-secondary;
+        color: #bbbbbb;
         margin-bottom: $spacing-md;
       }
       
       .info-link {
-        color: $primary-color;
-        font-weight: 500;
-        text-decoration: none;
         display: inline-block;
-        transition: color 0.2s ease;
+        padding: $spacing-xs $spacing-sm;
+        background-color: rgba($accent-color, 0.15);
+        color: $accent-color;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
         
         &:hover {
-          color: darken($primary-color, 10%);
-          text-decoration: underline;
+          background-color: rgba($accent-color, 0.25);
+          transform: translateY(-2px);
         }
       }
     }
   }
   
   .contact-form-container {
-    background-color: $bg-light;
-    border-radius: $border-radius-lg;
-    padding: $spacing-lg;
-    box-shadow: $box-shadow-light;
+    background-color: rgba(30, 30, 30, 0.5);
+    padding: $spacing-xl;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    
+    @include mobile {
+      padding: $spacing-lg;
+    }
     
     .form-message {
       text-align: center;
-      padding: $spacing-xl $spacing-md;
+      padding: $spacing-xl;
       
       .message-icon {
         font-size: 3rem;
         margin-bottom: $spacing-md;
-      }
-      
-      &.success {
-        color: #28a745;
         
-        .message-icon {
-          color: #28a745;
-        }
-      }
-      
-      &.error {
-        color: #dc3545;
-        
-        .message-icon {
-          color: #dc3545;
+        svg {
+          filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
         }
       }
       
       p {
-        font-size: 1.1rem;
-        margin-bottom: $spacing-md;
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-lg;
         line-height: 1.6;
       }
       
-      .try-again-btn {
-        background-color: $primary-color;
-        color: white;
-        border: none;
-        padding: $spacing-sm $spacing-md;
-        border-radius: $border-radius;
-        font-weight: 500;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
+      &.success .message-icon {
+        color: rgb(80, 200, 120);
+      }
+      
+      &.error {
+        .message-icon {
+          color: rgb(255, 100, 100);
+        }
         
-        &:hover {
-          background-color: darken($primary-color, 10%);
+        .try-again-btn {
+          background-color: rgba(255, 100, 100, 0.1);
+          color: rgb(255, 100, 100);
+          border: 1px solid rgba(255, 100, 100, 0.2);
+          padding: $spacing-sm $spacing-lg;
+          border-radius: 8px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background-color: rgba(255, 100, 100, 0.2);
+          }
         }
       }
     }
@@ -189,30 +222,28 @@
           display: block;
           margin-bottom: $spacing-xs;
           font-weight: 500;
-          color: $text-color;
+          color: #dddddd;
         }
         
         input, textarea {
           width: 100%;
-          padding: $spacing-sm $spacing-md;
-          border: 1px solid $border-color;
-          border-radius: $border-radius;
-          background-color: white;
-          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          padding: $spacing-sm;
+          background-color: rgba(255, 255, 255, 0.05);
+          border: 2px solid rgba(255, 255, 255, 0.1);
+          border-radius: 8px;
+          color: #ffffff;
           font-family: inherit;
+          transition: all 0.3s ease;
           
           &:focus {
-            border-color: $primary-color;
-            box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
             outline: none;
+            border-color: rgba($accent-color, 0.5);
+            background-color: rgba(255, 255, 255, 0.08);
           }
           
           &.error {
-            border-color: #dc3545;
-            
-            &:focus {
-              box-shadow: 0 0 0 2px rgba(#dc3545, 0.2);
-            }
+            border-color: rgba(255, 75, 75, 0.5);
+            background-color: rgba(255, 75, 75, 0.05);
           }
         }
         
@@ -223,36 +254,39 @@
         
         .error-message {
           display: block;
-          color: #dc3545;
-          font-size: 0.85rem;
           margin-top: $spacing-xs;
+          color: rgb(255, 100, 100);
+          font-size: $font-size-sm;
         }
       }
       
       .submit-btn {
-        background-color: $primary-color;
+        background-color: $accent-color;
         color: white;
-        border: none;
         padding: $spacing-sm $spacing-lg;
-        border-radius: $border-radius;
+        border-radius: 8px;
         font-weight: 500;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.2s ease, transform 0.2s ease;
-        display: inline-flex;
+        display: flex;
         align-items: center;
+        justify-content: center;
+        gap: $spacing-xs;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba($accent-color, 0.3);
+        width: 100%;
+        margin-top: $spacing-md;
         
         .icon-right {
-          margin-left: $spacing-sm;
+          transition: transform 0.2s ease;
         }
         
         &:hover {
-          background-color: darken($primary-color, 10%);
-          transform: translateY(-2px);
-        }
-        
-        &:active {
-          transform: translateY(0);
+          background-color: darken($accent-color, 5%);
+          box-shadow: 0 8px 20px rgba($accent-color, 0.4);
+          transform: translateY(-3px);
+          
+          .icon-right {
+            transform: translateX(4px);
+          }
         }
       }
     }

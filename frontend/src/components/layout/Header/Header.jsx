@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Header.scss';
-import logo from '../../../assets/img/logo512.png';
+import logo from '../../../assets/img/LogoFullx512NEW.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
