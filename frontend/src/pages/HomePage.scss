@@ -480,10 +480,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at bottom left, rgba(80, 80, 120, 0.1), transparent 60%);
+    background: 
+      radial-gradient(circle at 30% 40%, rgba(123, 97, 255, 0.12), transparent 40%),
+      radial-gradient(circle at 70% 60%, rgba(123, 97, 255, 0.08), transparent 40%),
+      linear-gradient(135deg, rgba(123, 97, 255, 0.03) 0%, transparent 100%);
     z-index: 0;
   }
-
+  
   .container {
     position: relative;
     z-index: 1;
@@ -662,7 +665,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top right, rgba(60, 60, 100, 0.15), transparent 70%);
+    background: 
+      url('../assets/img/aboutme.svg') no-repeat bottom center,
+      radial-gradient(circle at 70% 20%, rgba(125, 90, 255, 0.08), transparent 50%);
+    background-size: 100% auto, cover;
     z-index: 0;
   }
   
@@ -672,9 +678,10 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 200px;
-    background: linear-gradient(to bottom, transparent, #000000);
+    height: 50%;
+    background: linear-gradient(to top, #000000, transparent);
     z-index: 0;
+    pointer-events: none;
   }
   
   .container {
