@@ -32,9 +32,21 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Close mobile menu when window is resized to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container header-container">
+      <div className="header-container">
         <Link to="/" className="logo-container" onClick={closeMobileMenu}>
           <img src={logo} alt="Logo" className="logo-image" />
           <div className="logo-text">
