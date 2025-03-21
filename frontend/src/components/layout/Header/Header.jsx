@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Header.scss';
 import logo from '../../../assets/img/LogoFullx512NEW.png';
@@ -7,6 +7,7 @@ import logo from '../../../assets/img/LogoFullx512NEW.png';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   // Handle scroll to add background on scroll
   useEffect(() => {
@@ -27,9 +28,27 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Close mobile menu when a link is clicked
-  const closeMobileMenu = () => {
+  // Optimierte Navigation mit garantiertem Scroll-Reset
+  const handleNavigation = (path) => {
+    // Schließe Mobile-Menü
     setIsMobileMenuOpen(false);
+    
+    // Sofortiges Scrollen vor der Navigation
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTo(0, 0);
+    document.body.scrollTo(0, 0);
+    
+    // Navigiere mit einem minimalen Delay, um dem Browser Zeit zum Scrollen zu geben
+    setTimeout(() => {
+      navigate(path);
+      
+      // Doppelter Scroll-Reset nach der Navigation
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTo(0, 0);
+        document.body.scrollTo(0, 0);
+      });
+    }, 5);
   };
 
   // Close mobile menu when window is resized to desktop size
@@ -47,13 +66,18 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        <Link to="/" className="logo-container" onClick={closeMobileMenu}>
+        <div className="logo-container" 
+             role="button" 
+             tabIndex="0" 
+             onClick={() => handleNavigation('/')}
+             onKeyDown={(e) => e.key === 'Enter' && handleNavigation('/')}
+        >
           <img src={logo} alt="Logo" className="logo-image" />
           <div className="logo-text">
             <span className="name">WebLabs</span>
             <span className="title">Full Stack Developer</span>
           </div>
-        </Link>
+        </div>
 
         <button 
           className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} 
@@ -68,44 +92,52 @@ const Header = () => {
         <nav className={`navigation ${isMobileMenuOpen ? 'open' : ''}`}>
           <ul className="nav-list">
             <li className="nav-item">
-              <NavLink 
-                to="/" 
-                className={({ isActive }) => isActive ? 'active' : ''}
-                onClick={closeMobileMenu}
+              <div 
+                className={`nav-link ${window.location.pathname === '/' ? 'active' : ''}`}
+                onClick={() => handleNavigation('/')}
+                role="button"
+                tabIndex="0"
+                onKeyDown={(e) => e.key === 'Enter' && handleNavigation('/')}
               >
                 <FontAwesomeIcon icon="home" />
                 <span>Home</span>
-              </NavLink>
+              </div>
             </li>
             <li className="nav-item">
-              <NavLink 
-                to="/skills" 
-                className={({ isActive }) => isActive ? 'active' : ''}
-                onClick={closeMobileMenu}
+              <div 
+                className={`nav-link ${window.location.pathname === '/skills' ? 'active' : ''}`}
+                onClick={() => handleNavigation('/skills')}
+                role="button"
+                tabIndex="0"
+                onKeyDown={(e) => e.key === 'Enter' && handleNavigation('/skills')}
               >
                 <FontAwesomeIcon icon="code" />
                 <span>Skills</span>
-              </NavLink>
+              </div>
             </li>
             <li className="nav-item">
-              <NavLink 
-                to="/projects" 
-                className={({ isActive }) => isActive ? 'active' : ''}
-                onClick={closeMobileMenu}
+              <div 
+                className={`nav-link ${window.location.pathname === '/projects' ? 'active' : ''}`}
+                onClick={() => handleNavigation('/projects')}
+                role="button"
+                tabIndex="0"
+                onKeyDown={(e) => e.key === 'Enter' && handleNavigation('/projects')}
               >
                 <FontAwesomeIcon icon="briefcase" />
                 <span>Projects</span>
-              </NavLink>
+              </div>
             </li>
             <li className="nav-item">
-              <NavLink 
-                to="/contact" 
-                className={({ isActive }) => isActive ? 'active' : ''}
-                onClick={closeMobileMenu}
+              <div 
+                className={`nav-link ${window.location.pathname === '/contact' ? 'active' : ''}`}
+                onClick={() => handleNavigation('/contact')}
+                role="button"
+                tabIndex="0"
+                onKeyDown={(e) => e.key === 'Enter' && handleNavigation('/contact')}
               >
                 <FontAwesomeIcon icon="envelope" />
                 <span>Contact</span>
-              </NavLink>
+              </div>
             </li>
           </ul>
         </nav>

@@ -1,16 +1,65 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import projects from '../data/projects';
 import './ProjectDetailPage.scss';
 
 const ProjectDetailPage = () => {
   const { slug } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
   const project = projects.find(project => project.slug === slug);
+  const [enlargedImage, setEnlargedImage] = useState(null);
+
+  // Stärkerer Scroll-Reset für die Detail-Seite
+  useEffect(() => {
+    // Verschiedene Scroll-Methoden für maximale Kompatibilität
+    const resetScroll = () => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTo(0, 0);
+      document.body.scrollTo(0, 0);
+      
+      // Verzögerter zweiter Versuch
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTo(0, 0);
+        document.body.scrollTo(0, 0);
+      }, 50);
+    };
+    
+    // Sofort ausführen
+    resetScroll();
+    
+    // Nach dem Rendern erneut ausführen
+    requestAnimationFrame(resetScroll);
+  }, [slug, location.key]);
 
   // Funktion um zu prüfen, ob es sich um eine mobile App handelt
   const isMobileApp = (project) => {
     return project && project.type === "Mobile Application";
+  };
+
+  // Function to handle image click
+  const handleImageClick = (imageSrc) => {
+    setEnlargedImage(imageSrc);
+  };
+
+  // Function to close enlarged image
+  const closeEnlargedImage = () => {
+    setEnlargedImage(null);
+  };
+
+  // Verbesserte Projekt-Navigation mit Scroll-Reset
+  const navigateToProject = (projectSlug) => {
+    // Sofortiges Scrollen vor der Navigation
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTo(0, 0);
+    document.body.scrollTo(0, 0);
+    
+    // Mit minimaler Verzögerung navigieren
+    setTimeout(() => {
+      navigate(`/projects/${projectSlug}`);
+    }, 10);
   };
 
   if (!project) {
@@ -28,9 +77,20 @@ const ProjectDetailPage = () => {
 
   return (
     <div className="project-detail-page">
+      {enlargedImage && (
+        <div className="fullscreen-image-overlay" onClick={closeEnlargedImage}>
+          <div className="fullscreen-image-container">
+            <img src={enlargedImage} alt="Enlarged view" />
+            <button className="close-fullscreen" onClick={closeEnlargedImage}>
+              <FontAwesomeIcon icon="times" />
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="container">
         <div className="page-header">
-          <Link to="/projects" className="back-button">
+          <Link to="/projects" className="back-button" onClick={() => window.scrollTo(0, 0)}>
             <FontAwesomeIcon icon="arrow-left" />
             <span>Back to Projects</span>
           </Link>
@@ -42,6 +102,7 @@ const ProjectDetailPage = () => {
             src={project.thumbnail} 
             alt={project.title} 
             className={`project-image ${isMobileApp(project) ? 'mobile-app-image' : ''}`} 
+            onClick={() => handleImageClick(project.thumbnail)}
           />
         </div>
 
@@ -130,7 +191,7 @@ const ProjectDetailPage = () => {
               <h2>Project Gallery</h2>
               <div className="gallery-grid">
                 {project.gallery.map((image, index) => (
-                  <div className="gallery-item" key={index}>
+                  <div className="gallery-item" key={index} onClick={() => handleImageClick(image)}>
                     <img 
                       src={image} 
                       alt={`${project.title} - Screenshot ${index + 1}`} 
@@ -150,7 +211,14 @@ const ProjectDetailPage = () => {
               .filter(p => p.id !== project.id)
               .slice(0, 3)
               .map(relatedProject => (
-                <Link to={`/projects/${relatedProject.slug}`} className="related-project-card" key={relatedProject.id}>
+                <div
+                  className="related-project-card" 
+                  key={relatedProject.id}
+                  onClick={() => navigateToProject(relatedProject.slug)}
+                  role="button"
+                  tabIndex="0"
+                  onKeyDown={(e) => e.key === 'Enter' && navigateToProject(relatedProject.slug)}
+                >
                   <div className="related-project-image">
                     <img 
                       src={relatedProject.thumbnail} 
@@ -159,7 +227,7 @@ const ProjectDetailPage = () => {
                     />
                   </div>
                   <h3>{relatedProject.title}</h3>
-                </Link>
+                </div>
               ))}
           </div>
         </div>

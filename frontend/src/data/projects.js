@@ -54,7 +54,7 @@ const projects = [
     ],
     type: "Web Application",
     client: "diconium",
-    duration: "8 weeks",
+    duration: "4 weeks",
     role: "Full Stack Developer"
   },
   {
@@ -99,7 +99,7 @@ const projects = [
     ],
     type: "Mobile Application",
     client: "Internal Project",
-    duration: "10 weeks",
+    duration: "2 weeks",
     role: "Full Stack Mobile Developer"
   }
 ];

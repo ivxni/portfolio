@@ -5,57 +5,71 @@
   padding: $spacing-3xl 0;
   padding-top: 100px;
   min-height: 100vh;
+  background-color: #0a0a0a;
+  color: #f5f5f5;
   
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 $spacing-md;
+    padding: 0 $spacing-lg;
   }
   
   .page-header {
     display: flex;
     align-items: center;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-xl;
     
     .back-button {
       display: flex;
       align-items: center;
-      color: $text-color;
-      font-weight: 500;
-      margin-right: $spacing-lg;
-      transition: color 0.2s ease;
+      color: $primary-color;
+      font-size: $font-size-md;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      margin-right: $spacing-md;
       
       svg {
-        margin-right: $spacing-xs;
-        font-size: 0.9rem;
+        margin-right: 8px;
       }
       
       &:hover {
-        color: $primary-color;
+        color: lighten($primary-color, 10%);
       }
     }
     
     .project-title {
-      font-size: 2.5rem;
-      margin: 0;
-      color: $text-color;
+      font-size: 2.2rem;
       font-weight: 700;
+      margin: 0;
+      background: linear-gradient(90deg, #ffffff, #bbbbbb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
   
   .project-banner {
     width: 100%;
-    height: 400px;
-    margin-bottom: $spacing-xl;
+    height: 450px;
     border-radius: $border-radius-lg;
     overflow: hidden;
-    box-shadow: $box-shadow;
+    margin-bottom: $spacing-xl;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    background-color: #131313;
+    
+    @include tablet {
+      height: 400px;
+    }
+    
+    @include mobile {
+      height: 300px;
+    }
     
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
+      cursor: pointer;
       
       &.mobile-app-image {
         object-fit: contain;
@@ -66,10 +80,6 @@
       &:hover {
         transform: scale(1.02);
       }
-    }
-    
-    @include mobile {
-      height: 250px;
     }
   }
   
@@ -82,135 +92,140 @@
     @include tablet {
       grid-template-columns: 1fr;
     }
-  }
-  
-  .project-info {
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: $spacing-md;
-      color: $text-color;
-      font-weight: 600;
-    }
     
-    > div {
-      margin-bottom: $spacing-xl;
-    }
-  }
-  
-  .project-summary {
-    p {
-      margin-bottom: $spacing-md;
-      line-height: 1.7;
-      color: $text-color-secondary;
-    }
-  }
-  
-  .project-description {
-    p {
-      margin-bottom: $spacing-md;
-      line-height: 1.7;
-    }
-  }
-  
-  .tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-sm;
-    
-    .tech-tag {
-      background-color: rgba($primary-color, 0.1);
-      color: $primary-color;
-      padding: 0.4rem 0.8rem;
-      border-radius: $border-radius;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-  }
-  
-  .features-list {
-    padding-left: $spacing-md;
-    
-    li {
-      margin-bottom: $spacing-sm;
-      line-height: 1.6;
-      position: relative;
-      
-      &::before {
-        content: "";
-        position: absolute;
-        left: -$spacing-md;
-        top: 0.6rem;
-        width: 6px;
-        height: 6px;
-        background-color: $primary-color;
-        border-radius: 50%;
-      }
-    }
-  }
-  
-  .challenge-item {
-    margin-bottom: $spacing-md;
-    padding-bottom: $spacing-md;
-    border-bottom: 1px solid $border-color;
-    
-    &:last-child {
-      border-bottom: none;
-    }
-    
-    h3 {
-      font-size: 1.1rem;
-      margin-bottom: $spacing-xs;
-      font-weight: 600;
-    }
-    
-    .solution {
-      margin-top: $spacing-xs;
-    }
-  }
-  
-  .project-sidebar {
-    .project-meta {
-      background-color: $bg-light;
-      border-radius: $border-radius-lg;
-      padding: $spacing-md;
-      margin-bottom: $spacing-lg;
-      box-shadow: $box-shadow-light;
-      
-      .meta-item {
-        margin-bottom: $spacing-md;
+    .project-info {
+      .project-summary, .project-tech, .project-features, .project-challenges {
+        margin-bottom: $spacing-xl;
         
-        &:last-child {
-          margin-bottom: 0;
-        }
-        
-        h3 {
-          font-size: 0.9rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          color: $text-color-tertiary;
-          margin-bottom: $spacing-xs;
+        h2 {
+          font-size: 1.5rem;
+          margin-bottom: $spacing-md;
+          color: $primary-color;
+          font-weight: 600;
+          position: relative;
+          padding-bottom: 10px;
+          
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: $primary-color;
+            border-radius: 3px;
+          }
         }
         
         p {
-          font-weight: 500;
-          color: $text-color;
+          font-size: 1rem;
+          line-height: 1.6;
+          color: #dddddd;
+          margin-bottom: $spacing-md;
+        }
+      }
+      
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        
+        .tech-tag {
+          background-color: rgba(80, 80, 80, 0.3);
+          color: #ffffff;
+          padding: 6px 12px;
+          border-radius: $border-radius;
+          font-size: 0.9rem;
+          transition: background-color 0.3s ease;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          
+          &:hover {
+            background-color: rgba(100, 100, 100, 0.4);
+          }
+        }
+      }
+      
+      .features-list {
+        padding-left: 1.5rem;
+        
+        li {
+          margin-bottom: 10px;
+          color: #dddddd;
+          line-height: 1.5;
+          position: relative;
+          
+          &:before {
+            content: '•';
+            color: $primary-color;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+          }
+        }
+      }
+      
+      .challenge-item {
+        background-color: rgba(30, 30, 30, 0.4);
+        border-radius: $border-radius;
+        padding: $spacing-md;
+        margin-bottom: $spacing-md;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        
+        h3 {
+          font-size: 1.1rem;
+          margin-bottom: 0.5rem;
+          color: #ffffff;
+          font-weight: 600;
+        }
+        
+        p {
+          margin-bottom: 0.5rem;
+          font-size: 0.95rem;
+        }
+        
+        .solution {
+          color: #bbbbbb;
+          font-style: italic;
+          
+          strong {
+            color: $primary-color;
+          }
         }
       }
     }
     
-    .project-links {
-      display: flex;
-      flex-direction: column;
-      gap: $spacing-md;
-      
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
+    .project-sidebar {
+      .project-meta {
+        background-color: rgba(30, 30, 30, 0.5);
+        border-radius: $border-radius;
+        padding: $spacing-md;
+        margin-bottom: $spacing-md;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         
-        svg {
-          margin-right: $spacing-xs;
+        .meta-item {
+          padding: $spacing-sm 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          
+          &:last-child {
+            border-bottom: none;
+          }
+          
+          h3 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #999999;
+            font-weight: 500;
+            text-transform: uppercase;
+          }
+          
+          p {
+            font-size: 1rem;
+            color: #ffffff;
+            font-weight: 500;
+          }
         }
       }
     }
@@ -222,8 +237,21 @@
     h2 {
       font-size: 1.5rem;
       margin-bottom: $spacing-md;
-      color: $text-color;
+      color: $primary-color;
       font-weight: 600;
+      position: relative;
+      padding-bottom: 10px;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: $primary-color;
+        border-radius: 3px;
+      }
     }
     
     .gallery-grid {
@@ -242,19 +270,19 @@
       .gallery-item {
         border-radius: $border-radius;
         overflow: hidden;
-        box-shadow: $box-shadow-light;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         cursor: pointer;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: rgba(10, 10, 10, 0.9);
         
         &:hover {
           transform: translateY(-5px);
-          box-shadow: $box-shadow;
+          box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
         }
         
         img {
           width: 100%;
-          height: 240px;
+          height: 280px;
           object-fit: cover;
           
           &.mobile-app-image {
@@ -264,7 +292,7 @@
           }
           
           @include mobile {
-            height: 220px;
+            height: 240px;
           }
         }
       }
@@ -275,14 +303,27 @@
     h2 {
       font-size: 1.5rem;
       margin-bottom: $spacing-md;
-      color: $text-color;
+      color: $primary-color;
       font-weight: 600;
+      position: relative;
+      padding-bottom: 10px;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: $primary-color;
+        border-radius: 3px;
+      }
     }
     
     .related-projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: $spacing-lg;
+      gap: $spacing-md;
       
       @include tablet {
         grid-template-columns: repeat(2, 1fr);
@@ -293,19 +334,23 @@
       }
       
       .related-project-card {
-        border-radius: $border-radius-lg;
+        background-color: rgba(30, 30, 30, 0.7);
+        border-radius: $border-radius;
         overflow: hidden;
-        box-shadow: $box-shadow-light;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         text-decoration: none;
+        display: block;
+        cursor: pointer;
         
         &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        &:focus {
+          outline: 2px solid $primary-color;
           transform: translateY(-5px);
-          box-shadow: $box-shadow;
-          
-          h3 {
-            color: $primary-color;
-          }
         }
         
         .related-project-image {
@@ -318,6 +363,12 @@
             object-fit: cover;
             transition: transform 0.3s ease;
             
+            &.mobile-app-image {
+              object-fit: contain;
+              background-color: #131313;
+              padding: 10px;
+            }
+            
             &:hover {
               transform: scale(1.05);
             }
@@ -326,36 +377,88 @@
         
         h3 {
           font-size: 1.1rem;
+          padding: 1rem;
           margin: 0;
-          padding: $spacing-md;
-          color: $text-color;
-          font-weight: 600;
-          transition: color 0.2s ease;
+          color: white;
+          font-weight: 500;
         }
       }
     }
   }
+}
+
+.project-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
   
-  .project-not-found {
-    text-align: center;
-    padding: 5rem 0;
+  h2 {
+    font-size: 2rem;
+    margin-bottom: $spacing-md;
+    color: $text-color;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    margin-bottom: $spacing-lg;
+    color: #999999;
+  }
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
     
-    h2 {
-      font-size: 2rem;
-      margin-bottom: $spacing-md;
+    .icon-left {
+      margin-right: 8px;
+    }
+  }
+}
+
+// Fullscreen image overlay
+.fullscreen-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .fullscreen-image-container {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
     
-    p {
-      margin-bottom: $spacing-lg;
-      color: $text-color-secondary;
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
+    .close-fullscreen {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
       
-      .icon-left {
-        margin-right: $spacing-xs;
+      &:hover {
+        opacity: 1;
       }
     }
   }

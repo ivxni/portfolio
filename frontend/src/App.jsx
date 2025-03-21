@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './styles/global.scss';
 
 // Layout components
@@ -17,10 +17,48 @@ import NotFoundPage from './pages/NotFoundPage';
 // Import FontAwesome icons
 import './utils/fontawesome';
 
+// Verbesserte ScrollToTop-Komponente
+const ScrollToTop = () => {
+  const { pathname, key } = useLocation();
+  const initialized = useRef(false);
+  
+  useEffect(() => {
+    // Skip initial render to avoid blocking initial page load scroll position
+    if (!initialized.current) {
+      initialized.current = true;
+      return;
+    }
+
+    // Force multiple attempts to ensure scroll is reset
+    const scrollToTop = (attempt = 0) => {
+      // Multiple method attempts with both scrollTo methods
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTo(0, 0);
+      document.body.scrollTo(0, 0);
+      
+      // If not at top, try again up to 3 times with increasing delays
+      if (window.scrollY !== 0 && attempt < 3) {
+        setTimeout(() => scrollToTop(attempt + 1), 50 * (attempt + 1));
+      }
+    };
+    
+    // Execute immediately
+    scrollToTop();
+    
+    // And then after paint cycle to catch cases where rendering affects layout
+    requestAnimationFrame(() => {
+      scrollToTop();
+    });
+  }, [pathname, key]);
+  
+  return null;
+};
+
 function App() {
   return (
     <div className="app">
       <Header />
+      <ScrollToTop />
       <main className="content">
         <Routes>
           <Route path="/" element={<HomePage />} />
