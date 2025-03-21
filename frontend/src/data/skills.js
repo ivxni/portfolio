@@ -169,7 +169,52 @@ const skills = [
     experience: 'Intermediate',
     description: 'App Services, Functions, Storage, DevOps',
     proficiencyLevel: 65
-  }
+  },
+  // Adobe Tools
+  {
+    id: 21,
+    name: 'Photoshop',
+    icon: 'adobe',
+    iconType: 'fab',
+    color: '#31A8FF',
+    category: 'tools',
+    experience: 'Intermediate',
+    description: 'Image manipulation and design with Adobe Photoshop',
+    proficiencyLevel: 70
+  },
+  {
+    id: 22,
+    name: 'After Effects',
+    icon: 'film',
+    iconType: 'fas',
+    color: '#9999FF',
+    category: 'tools',
+    experience: 'Advanced',
+    description: 'Motion graphics and visual effects',
+    proficiencyLevel: 85
+  },
+  {
+    id: 23,
+    name: 'Premiere Pro',
+    icon: 'video',
+    iconType: 'fas',
+    color: '#9999FF',
+    category: 'tools',
+    experience: 'Intermediate',
+    description: 'Video editing and production',
+    proficiencyLevel: 70
+  },
+  {
+    id: 24,
+    name: 'Illustrator',
+    icon: 'pen-nib',
+    iconType: 'fas',
+    color: '#FF9A00',
+    category: 'tools',
+    experience: 'Intermediate',
+    description: 'Vector graphics and illustration',
+    proficiencyLevel: 70
+  },
 ];
 
 export default skills; 

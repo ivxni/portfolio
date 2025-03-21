@@ -62,16 +62,16 @@
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.2rem;
     margin-bottom: 5rem;
 
     .skill-card {
       background-color: rgba(30, 30, 30, 0.7);
       border-radius: 0.8rem;
-      padding: 1.5rem;
+      padding: 1.2rem;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 12px -3px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -79,27 +79,27 @@
 
       &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        box-shadow: 0 15px 20px -5px rgba(0,0,0,0.1);
         background-color: rgba(40, 40, 40, 0.7);
       }
 
       .skill-icon-wrapper {
         background-color: rgba(20, 20, 20, 0.7);
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
 
         .skill-icon {
-          font-size: 2rem;
+          font-size: 1.8rem;
         }
 
         .skill-custom-logo {
-          width: 40px;
-          height: 40px;
+          width: 35px;
+          height: 35px;
           transition: transform 0.3s ease;
           
           &:hover {
@@ -109,13 +109,13 @@
       }
 
       .skill-name {
-        font-size: 1.3rem;
-        margin-bottom: 0.4rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
         color: white;
       }
 
       .skill-experience {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         color: $primary-color;
         opacity: 0.9;
       }
@@ -168,8 +168,8 @@
     }
     
     .skills-grid {
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
     }
     
     .learning-goals {

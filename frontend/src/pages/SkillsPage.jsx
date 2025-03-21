@@ -17,6 +17,10 @@ import csharpLogo from '../assets/logos/csharp.svg';
 import reactNativeLogo from '../assets/logos/reactnative.svg';
 import angularLogo from '../assets/logos/angular.svg';
 import azureLogo from '../assets/logos/azure.svg';
+import photoshopLogo from '../assets/logos/photoshop.svg';
+import illustratorLogo from '../assets/logos/illustrator.svg';
+import aftereffectsLogo from '../assets/logos/aftereffects.svg';
+import premiereLogo from '../assets/logos/premiere.svg';
 
 const SkillsPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -25,6 +29,7 @@ const SkillsPage = () => {
     { id: 'frontend', name: 'Frontend' },
     { id: 'backend', name: 'Backend' },
     { id: 'design', name: 'Design' },
+    { id: 'tools', name: 'Tools' },
     { id: 'devops', name: 'DevOps' }
   ];
 
@@ -62,6 +67,14 @@ const SkillsPage = () => {
         return <img src={angularLogo} alt={skill.name} className="skill-custom-logo" />;
       case 'Azure':
         return <img src={azureLogo} alt={skill.name} className="skill-custom-logo" />;
+      case 'Photoshop':
+        return <img src={photoshopLogo} alt={skill.name} className="skill-custom-logo" />;
+      case 'Illustrator':
+        return <img src={illustratorLogo} alt={skill.name} className="skill-custom-logo" />;
+      case 'After Effects':
+        return <img src={aftereffectsLogo} alt={skill.name} className="skill-custom-logo" />;
+      case 'Premiere Pro':
+        return <img src={premiereLogo} alt={skill.name} className="skill-custom-logo" />;
       default:
         return (
           <FontAwesomeIcon 
@@ -113,11 +126,7 @@ const SkillsPage = () => {
         <div className="learning-goals">
           <h2 className="section-title">Learning Next</h2>
           <div className="goals-list">
-            <div className="goal-item">Advanced TypeScript patterns</div>
-            <div className="goal-item">Next.js optimization</div>
-            <div className="goal-item">GraphQL API design</div>
-            <div className="goal-item">Cloud architecture</div>
-            <div className="goal-item">Test-driven development</div>
+            <div className="goal-item">Reverse Engineering</div>
           </div>
         </div>
       </div>
