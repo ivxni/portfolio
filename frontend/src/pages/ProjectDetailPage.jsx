@@ -8,6 +8,11 @@ const ProjectDetailPage = () => {
   const { slug } = useParams();
   const project = projects.find(project => project.slug === slug);
 
+  // Funktion um zu prüfen, ob es sich um eine mobile App handelt
+  const isMobileApp = (project) => {
+    return project && project.type === "Mobile Application";
+  };
+
   if (!project) {
     return (
       <div className="project-not-found">
@@ -33,7 +38,11 @@ const ProjectDetailPage = () => {
         </div>
 
         <div className="project-banner">
-          <img src={project.thumbnail} alt={project.title} className="project-image" />
+          <img 
+            src={project.thumbnail} 
+            alt={project.title} 
+            className={`project-image ${isMobileApp(project) ? 'mobile-app-image' : ''}`} 
+          />
         </div>
 
         <div className="project-content">
@@ -112,22 +121,6 @@ const ProjectDetailPage = () => {
                 </div>
               )}
             </div>
-
-            <div className="project-links">
-              {project.demoLink && (
-                <a href={project.demoLink} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon="external-link-alt" className="icon-left" />
-                  Live Demo
-                </a>
-              )}
-              
-              {project.sourceLink && (
-                <a href={project.sourceLink} className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={['fab', 'github']} className="icon-left" />
-                  Source Code
-                </a>
-              )}
-            </div>
           </div>
         </div>
 
@@ -138,7 +131,11 @@ const ProjectDetailPage = () => {
               <div className="gallery-grid">
                 {project.gallery.map((image, index) => (
                   <div className="gallery-item" key={index}>
-                    <img src={image} alt={`${project.title} - Screenshot ${index + 1}`} />
+                    <img 
+                      src={image} 
+                      alt={`${project.title} - Screenshot ${index + 1}`} 
+                      className={isMobileApp(project) ? 'mobile-app-image' : ''}
+                    />
                   </div>
                 ))}
               </div>
@@ -155,7 +152,11 @@ const ProjectDetailPage = () => {
               .map(relatedProject => (
                 <Link to={`/projects/${relatedProject.slug}`} className="related-project-card" key={relatedProject.id}>
                   <div className="related-project-image">
-                    <img src={relatedProject.thumbnail} alt={relatedProject.title} />
+                    <img 
+                      src={relatedProject.thumbnail} 
+                      alt={relatedProject.title} 
+                      className={isMobileApp(relatedProject) ? 'mobile-app-image' : ''}
+                    />
                   </div>
                   <h3>{relatedProject.title}</h3>
                 </Link>

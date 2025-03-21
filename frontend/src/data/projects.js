@@ -1,85 +1,106 @@
+// Import Scrum Poker images
+import scrumpokerLanding from '../assets/scrumpoker/landingpage.png';
+import scrumpokerGameroom from '../assets/scrumpoker/gameroom.png';
+import scrumpokerCreateRoom from '../assets/scrumpoker/create-room-page.png';
+import scrumpokerProfile from '../assets/scrumpoker/profilepage.png';
+import scrumpokerLogin from '../assets/scrumpoker/loginpage.png';
+
+// Import Lynx AI images
+import lynxDashboard from '../assets/lynx/dashboard.webp';
+import lynxUpload from '../assets/lynx/upload-document.webp';
+import lynxHistory from '../assets/lynx/history.webp';
+import lynxProfile from '../assets/lynx/profilepage.webp';
+import lynxEditProfile from '../assets/lynx/edit-profile.webp';
+import lynxLogin from '../assets/lynx/login.webp';
+import lynxCreateAccount from '../assets/lynx/create-account.webp';
+import lynxGetStarted from '../assets/lynx/get-started.webp';
+import lynxLanguageSettings from '../assets/lynx/language-settings.webp';
+import lynxAppearanceSettings from '../assets/lynx/appearance-settings.webp';
+
 const projects = [
   {
     id: 1,
-    title: "",
-    slug: "e-commerce-platform",
-    summary: "A full-featured e-commerce platform with user authentication, product management, and payment processing.",
-    description: "This project is a comprehensive e-commerce solution built with React, Node.js, and MongoDB. It features a responsive design, user authentication with JWT, product management for admins, a shopping cart system, and integration with Stripe for payment processing.\n\nThe application follows modern development practices including state management with Redux, component reusability, and responsive design for all device types. The backend API is RESTful and includes comprehensive error handling and data validation.",
-    thumbnail: "/images/projects/ecommerce-thumb.jpg",
+    title: "ScrumPoker - Agile Estimation Tool",
+    slug: "scrum-poker",
+    summary: "A real-time Scrum Poker web application for agile development teams to efficiently estimate story points.",
+    description: "Developed a modern Scrum Poker application for internal company usage, featuring Microsoft SSO authentication, real-time multiplayer sessions, and an intuitive UI. The application allows scrum teams to conduct planning sessions remotely with synchronized timers, hidden card values until reveal, and statistical analysis of team estimates.\n\nThe system implements Socket.io for real-time communication, ensuring seamless interaction between team members during estimation sessions. Room creation and management features allow Scrum Masters to organize multiple sessions with unique join codes.",
+    thumbnail: scrumpokerLanding,
     gallery: [
-      "/images/projects/ecommerce-1.jpg",
-      "/images/projects/ecommerce-2.jpg",
-      "/images/projects/ecommerce-3.jpg",
+      scrumpokerGameroom,
+      scrumpokerCreateRoom,
+      scrumpokerProfile,
+      scrumpokerLogin
     ],
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Redux", "JWT", "Stripe API", "SCSS"],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io", "Microsoft SSO"],
     features: [
-      "User registration and authentication",
-      "Product browsing with filtering and sorting",
-      "Shopping cart and wishlist functionality",
-      "Secure checkout with Stripe integration",
-      "Admin dashboard for product and order management",
-      "Responsive design for all device sizes"
+      "Microsoft SSO Authentication",
+      "Real-time multiplayer Scrum Poker sessions",
+      "Room creation with unique 5-letter join codes",
+      "Synchronized timer controlled by Scrum Master",
+      "Statistical analysis of team estimates",
+      "Modern UI with clean aesthetics"
     ],
     challenges: [
       {
-        title: "State Management Complexity",
-        description: "Managing state across multiple components while handling asynchronous API calls and user interactions.",
-        solution: "Implemented Redux with thunk middleware to centralize state management and handle async operations cleanly."
+        title: "Real-time Synchronization",
+        description: "Ensuring all users see the same state across devices during estimation sessions.",
+        solution: "Implemented Socket.io with a robust event system to maintain consistent state across all clients."
       },
       {
-        title: "Payment Processing Security",
-        description: "Ensuring secure handling of payment information and preventing fraud.",
-        solution: "Used Stripe's secure elements to handle card information on the client side and webhook verification on the server."
+        title: "Authentication Security",
+        description: "Creating a secure, enterprise-grade authentication system.",
+        solution: "Integrated Microsoft SSO with JWT token validation and proper session management."
       }
     ],
     type: "Web Application",
-    client: "Personal Project",
-    duration: "3 months",
-    role: "Full Stack Developer",
-    demoLink: "https://ecommerce-demo.example.com",
-    sourceLink: "https://github.com/username/ecommerce-platform",
-    featured: false
+    client: "diconium",
+    duration: "8 weeks",
+    role: "Full Stack Developer"
   },
   {
     id: 2,
-    title: "",
-    slug: "task-management-app",
-    summary: "A collaborative task management tool with real-time updates and team functionality.",
-    description: "This task management application allows teams to collaborate effectively by organizing tasks, setting deadlines, and tracking progress. The application features real-time updates using WebSockets, drag-and-drop interfaces, and a clean, intuitive design.\n\nThe frontend is built with React and uses Context API for state management. The backend uses Node.js with Express and MongoDB, with Socket.io for real-time communication between clients.",
-    thumbnail: "/images/projects/taskmanager-thumb.jpg",
+    title: "LynxAI - OCR Document Scanner",
+    slug: "lynx-ai",
+    summary: "A mobile app that converts document images to searchable PDF files using OCR technology and AI processing.",
+    description: "LynxAI is a powerful mobile application built with React Native/Expo that allows users to quickly convert physical documents into fully searchable PDF files. The app leverages Mistral OCR API to extract text from images with high accuracy, creating professional digital documents.\n\nThe application features a clean, modern interface with real-time progress tracking during OCR processing, document history management, and multiple sharing options. The backend is built with Node.js/Express and MongoDB for efficient data storage and retrieval.",
+    thumbnail: lynxDashboard,
     gallery: [
-      "/images/projects/taskmanager-1.jpg",
-      "/images/projects/taskmanager-2.jpg",
-      "/images/projects/taskmanager-3.jpg",
+      lynxGetStarted,
+      lynxCreateAccount,
+      lynxLogin,
+      lynxDashboard,
+      lynxUpload,
+      lynxHistory,
+      lynxProfile,
+      lynxEditProfile,
+      lynxLanguageSettings,
+      lynxAppearanceSettings
     ],
-    technologies: ["React", "Context API", "Node.js", "Express", "MongoDB", "Socket.io", "CSS Grid"],
+    technologies: ["React Native", "Expo", "Node.js", "Express", "MongoDB", "Mistral OCR API"],
     features: [
-      "Task creation, assignment, and tracking",
-      "Real-time updates across all team members",
-      "Kanban board with drag-and-drop interface",
-      "Deadline notifications and reminders",
-      "Team management and permission settings",
-      "Activity logs and task history"
+      "Image capture from camera or gallery",
+      "OCR processing with Mistral AI",
+      "Real-time conversion progress tracking",
+      "Document history and management",
+      "Multiple sharing options",
+      "Clean, minimalist user interface"
     ],
     challenges: [
       {
-        title: "Real-time Data Synchronization",
-        description: "Ensuring all users see the same task states in real-time without conflicts.",
-        solution: "Implemented Socket.io with a message queue system to handle concurrent updates and ensure data consistency."
+        title: "Optimizing Image Processing",
+        description: "Ensuring high-quality OCR results from various image sources and qualities.",
+        solution: "Implemented image preprocessing techniques and format optimization before sending to the OCR API."
       },
       {
-        title: "Performance with Many Tasks",
-        description: "Maintaining fast load times and smooth interactions when dealing with hundreds of tasks.",
-        solution: "Used virtualized lists and pagination combined with efficient MongoDB queries to optimize performance."
+        title: "Cross-platform Compatibility",
+        description: "Ensuring consistent experience across iOS and Android devices.",
+        solution: "Utilized Expo platform with extensive testing on both operating systems and device-specific optimizations."
       }
     ],
-    type: "Web Application",
-    client: "Internal Tool",
-    duration: "2 months",
-    role: "Frontend Developer",
-    demoLink: "https://taskmanager-demo.example.com",
-    sourceLink: "https://github.com/username/task-management-app",
-    featured: false
+    type: "Mobile Application",
+    client: "Internal Project",
+    duration: "10 weeks",
+    role: "Full Stack Mobile Developer"
   }
 ];
 
