@@ -10,7 +10,6 @@ import jsLogo from '../assets/logos/javascript.svg';
 import htmlLogo from '../assets/logos/html5.svg';
 import cssLogo from '../assets/logos/css3.svg';
 import nodeLogo from '../assets/logos/nodejs.svg';
-import mongoLogo from '../assets/logos/mongodb.svg';
 import sassLogo from '../assets/logos/sass.svg';
 import typescriptLogo from '../assets/logos/typescript.svg';
 import pythonLogo from '../assets/logos/python.svg';

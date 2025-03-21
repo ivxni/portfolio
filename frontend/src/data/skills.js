@@ -67,9 +67,9 @@ const skills = [
     iconType: 'fas',
     color: '#47A248',
     category: 'backend',
-    experience: 'Intermediate',
+    experience: 'Advanced',
     description: 'Schema Design, CRUD Operations, Aggregation',
-    proficiencyLevel: 75
+    proficiencyLevel: 90
   },
   {
     id: 7,
@@ -83,7 +83,51 @@ const skills = [
     proficiencyLevel: 95
   },
   {
-    id: 14,
+    id: 8,
+    name: 'React Native',
+    icon: 'mobile-alt',
+    iconType: 'fas',
+    color: '#61DAFB',
+    category: 'frontend',
+    experience: 'Intermediate',
+    description: 'Cross-platform mobile development with React',
+    proficiencyLevel: 75
+  },
+  {
+    id: 9,
+    name: 'Angular',
+    icon: 'angular',
+    iconType: 'fab',
+    color: '#DD0031',
+    category: 'frontend',
+    experience: 'Beginner',
+    description: 'Components, Services, RxJS',
+    proficiencyLevel: 40
+  },
+  {
+    id: 10,
+    name: 'C++',
+    icon: 'code',
+    iconType: 'fas',
+    color: '#00599C',
+    category: 'backend',
+    experience: 'Beginner',
+    description: 'Object-Oriented Programming, Memory Management',
+    proficiencyLevel: 35
+  },
+  {
+    id: 11,
+    name: 'C#',
+    icon: 'code',
+    iconType: 'fas',
+    color: '#239120',
+    category: 'backend',
+    experience: 'Intermediate',
+    description: '.NET Framework, Object-Oriented Programming',
+    proficiencyLevel: 65
+  },
+  {
+    id: 12,
     name: 'Python',
     icon: 'python',
     iconType: 'fab',
@@ -91,33 +135,10 @@ const skills = [
     category: 'backend',
     experience: 'Intermediate',
     description: 'Data Processing, Automation, Web Scraping',
-    proficiencyLevel: 50
-  },
-  {
-    id: 9,
-    name: 'TypeScript',
-    icon: 'code',
-    iconType: 'fas',
-    // customLogo: typescriptLogo, // Beispiel für ein benutzerdefiniertes Logo
-    color: '#3178C6',
-    category: 'frontend',
-    experience: 'Intermediate',
-    description: 'Types, Interfaces, Generics',
     proficiencyLevel: 70
   },
   {
-    id: 10,
-    name: 'Redux',
-    icon: 'cubes',
-    iconType: 'fas',
-    color: '#764ABC',
-    category: 'frontend',
-    experience: 'Intermediate',
-    description: 'State Management, Actions, Reducers',
-    proficiencyLevel: 75
-  },
-  {
-    id: 11,
+    id: 13,
     name: 'Figma',
     icon: 'figma',
     iconType: 'fab',
@@ -128,47 +149,25 @@ const skills = [
     proficiencyLevel: 65
   },
   {
-    id: 12,
-    name: 'AWS',
-    icon: 'aws',
-    iconType: 'fab',
-    color: '#FF9900',
-    category: 'devops',
-    experience: 'Beginner',
-    description: 'S3, EC2, Lambda, CloudFront',
-    proficiencyLevel: 50
-  },
-  {
-    id: 13,
+    id: 14,
     name: 'Docker',
     icon: 'docker',
     iconType: 'fab',
     color: '#2496ED',
     category: 'devops',
-    experience: 'Intermediate',
-    description: 'Containerization, Docker Compose, Deployment',
-    proficiencyLevel: 68
-  },
-  {
-    id: 17,
-    name: 'C++',
-    icon: 'code',
-    iconType: 'fas',
-    color: '#00599C',
-    category: 'programming',
     experience: 'Beginner',
-    description: 'Object-Oriented Programming, Memory Management, Data Structures',
-    proficiencyLevel: 22
+    description: 'Containerization, Docker Compose',
+    proficiencyLevel: 40
   },
   {
     id: 15,
-    name: 'GraphQL',
-    icon: 'project-diagram',
+    name: 'Azure',
+    icon: 'cloud',
     iconType: 'fas',
-    color: '#E535AB',
-    category: 'backend',
+    color: '#0078D4',
+    category: 'devops',
     experience: 'Intermediate',
-    description: 'Queries, Mutations, Schema Design',
+    description: 'App Services, Functions, Storage, DevOps',
     proficiencyLevel: 65
   }
 ];
