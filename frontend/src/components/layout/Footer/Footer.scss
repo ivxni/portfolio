@@ -2,9 +2,9 @@
 @import '../../../styles/mixins';
 
 .footer {
-  background-color: $light-gray;
+  background-color: #0a0a0a;
   padding: $spacing-2xl 0 $spacing-lg;
-  margin-top: $spacing-2xl;
+  margin-top: 0;
   
   .container {
     @include flex-column;
@@ -15,10 +15,14 @@
   text-align: center;
   margin-bottom: $spacing-xl;
   
+  .section-title {
+    color: $light-text;
+  }
+  
   .contact-text {
     max-width: 600px;
     margin: 0 auto $spacing-lg;
-    color: $gray-text;
+    color: #bbbbbb;
   }
 }
 
@@ -30,15 +34,19 @@
   .contact-method {
     display: flex;
     align-items: center;
-    background-color: $light-bg;
+    background-color: rgba(30, 30, 30, 0.5);
     padding: $spacing-sm $spacing-md;
     border-radius: $border-radius-md;
-    @include box-shadow(1);
+    color: $light-text;
     @include transition;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.05);
     
     &:hover {
       transform: translateY(-3px);
-      @include box-shadow(2);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
       color: $accent-color;
     }
     
@@ -59,10 +67,12 @@
     height: 40px;
     @include flex-center;
     margin: 0 $spacing-sm;
-    background-color: $medium-gray;
-    color: $dark-gray;
+    background-color: rgba(30, 30, 30, 0.5);
+    color: $light-text;
     border-radius: $border-radius-circle;
     @include transition;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.05);
     
     svg {
       font-size: $font-size-lg;
@@ -75,18 +85,21 @@
       &:nth-child(1) {
         background-color: #24292e;
         color: $light-text;
+        box-shadow: 0 15px 35px rgba(36, 41, 46, 0.3);
       }
       
       // LinkedIn
       &:nth-child(2) {
         background-color: #0a66c2;
         color: $light-text;
+        box-shadow: 0 15px 35px rgba(10, 102, 194, 0.3);
       }
       
       // Twitter
       &:nth-child(3) {
         background-color: #1da1f2;
         color: $light-text;
+        box-shadow: 0 15px 35px rgba(29, 161, 242, 0.3);
       }
     }
   }
@@ -97,7 +110,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border-top: 1px solid $medium-gray;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: $spacing-lg;
   
   @include respond-to(md) {
@@ -107,7 +120,7 @@
   
   .copyright {
     font-size: $font-size-sm;
-    color: $gray-text;
+    color: #bbbbbb;
     margin-bottom: $spacing-sm;
     
     @include respond-to(md) {
@@ -128,7 +141,7 @@
     .footer-nav-link {
       margin: 0 $spacing-sm;
       font-size: $font-size-sm;
-      color: $gray-text;
+      color: #bbbbbb;
       @include transition;
       
       &:hover {

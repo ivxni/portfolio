@@ -2,11 +2,12 @@
 @import '../styles/mixins';
 
 .contact-page {
-  padding: $spacing-3xl 0;
+  padding: $spacing-3xl 0 0;
   background-color: #0a0a0a;
   color: #ffffff;
   min-height: 100vh;
   padding-top: calc(80px + $spacing-3xl); /* Zusätzliches Padding für den Header */
+  margin-bottom: 0;
   
   .container {
     max-width: 1200px;
@@ -62,6 +63,7 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-lg;
+    margin-bottom: $spacing-2xl;
     
     @include tablet {
       flex-direction: row;
@@ -155,6 +157,7 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: $spacing-2xl;
     
     @include mobile {
       padding: $spacing-lg;
