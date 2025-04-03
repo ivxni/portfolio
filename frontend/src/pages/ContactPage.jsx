@@ -98,7 +98,7 @@ const ContactPage = () => {
               </div>
               <h3>Email</h3>
               <p>contact@example.com</p>
-              <a href="mailto:contact@example.com" className="info-link">Send an email</a>
+              <a href="mailto:contact@web-labs.io" className="info-link">Send an email</a>
             </div>
             
             <div className="info-card">
@@ -107,7 +107,7 @@ const ContactPage = () => {
               </div>
               <h3>LinkedIn</h3>
               <p>Connect with me on LinkedIn</p>
-              <a href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer" className="info-link">
+              <a href="https://www.linkedin.com/in/berkcan-cadirci-5945a9341/" target="_blank" rel="noopener noreferrer" className="info-link">
                 View Profile
               </a>
             </div>
@@ -118,7 +118,7 @@ const ContactPage = () => {
               </div>
               <h3>GitHub</h3>
               <p>Check out my code repositories</p>
-              <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" className="info-link">
+              <a href="https://github.com/ivxni" target="_blank" rel="noopener noreferrer" className="info-link">
                 View GitHub
               </a>
             </div>
