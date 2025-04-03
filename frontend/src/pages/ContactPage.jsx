@@ -97,7 +97,7 @@ const ContactPage = () => {
                 <FontAwesomeIcon icon="envelope" />
               </div>
               <h3>Email</h3>
-              <p>contact@example.com</p>
+              <p>contact@web-labs.io</p>
               <a href="mailto:contact@web-labs.io" className="info-link">Send an email</a>
             </div>
             
