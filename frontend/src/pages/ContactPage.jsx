@@ -92,7 +92,7 @@ const ContactPage = () => {
 
         <div className="contact-content">
           <div className="contact-info">
-            <div className="info-card">
+            <div className="info-car">
               <div className="info-icon">
                 <FontAwesomeIcon icon="envelope" />
               </div>
