@@ -1,0 +1,152 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.footer {
+  background-color: #0a0a0a;
+  padding: $spacing-2xl 0 $spacing-lg;
+  margin-top: 0;
+  
+  .container {
+    @include flex-column;
+  }
+}
+
+.contact-section {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  
+  .section-title {
+    color: $light-text;
+  }
+  
+  .contact-text {
+    max-width: 600px;
+    margin: 0 auto $spacing-lg;
+    color: #bbbbbb;
+  }
+}
+
+.contact-methods {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-lg;
+  
+  .contact-method {
+    display: flex;
+    align-items: center;
+    background-color: rgba(30, 30, 30, 0.5);
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-md;
+    color: $light-text;
+    @include transition;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      color: $accent-color;
+    }
+    
+    svg {
+      margin-right: $spacing-sm;
+      color: $accent-color;
+    }
+  }
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-xl;
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    margin: 0 $spacing-sm;
+    background-color: rgba(30, 30, 30, 0.5);
+    color: $light-text;
+    border-radius: $border-radius-circle;
+    @include transition;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    
+    svg {
+      font-size: $font-size-lg;
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      
+      // GitHub
+      &:nth-child(1) {
+        background-color: #24292e;
+        color: $light-text;
+        box-shadow: 0 15px 35px rgba(36, 41, 46, 0.3);
+      }
+      
+      // LinkedIn
+      &:nth-child(2) {
+        background-color: #0a66c2;
+        color: $light-text;
+        box-shadow: 0 15px 35px rgba(10, 102, 194, 0.3);
+      }
+      
+      // Twitter
+      &:nth-child(3) {
+        background-color: #1da1f2;
+        color: $light-text;
+        box-shadow: 0 15px 35px rgba(29, 161, 242, 0.3);
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: $spacing-lg;
+  
+  @include respond-to(md) {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .copyright {
+    font-size: $font-size-sm;
+    color: #bbbbbb;
+    margin-bottom: $spacing-sm;
+    
+    @include respond-to(md) {
+      margin-bottom: 0;
+      order: 0;
+    }
+  }
+  
+  .footer-nav {
+    display: flex;
+    margin-bottom: $spacing-sm;
+    
+    @include respond-to(md) {
+      margin-bottom: 0;
+      order: 1;
+    }
+    
+    .footer-nav-link {
+      margin: 0 $spacing-sm;
+      font-size: $font-size-sm;
+      color: #bbbbbb;
+      @include transition;
+      
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+} 

@@ -1,0 +1,285 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.projects-page {
+  padding: $spacing-3xl 0;
+  padding-top: 100px;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: $accent-color;
+        border-radius: 2px;
+      }
+    }
+    
+    .page-description {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-2xl;
+    
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+    }
+  }
+  
+  .project-card {
+    background-color: rgba(30, 30, 30, 0.5);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .project-image {
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+
+        &.mobile-app-image {
+          object-fit: contain;
+          background-color: #131313;
+          padding: 10px;
+        }
+      }
+      
+      &:hover img {
+        transform: scale(1.05);
+      }
+      
+      .featured-badge {
+        position: absolute;
+        top: $spacing-md;
+        right: $spacing-md;
+        background-color: $accent-color;
+        color: white;
+        font-size: $font-size-xs;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 20px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+    }
+    
+    .project-content {
+      padding: $spacing-xl;
+      
+      @include mobile {
+        padding: $spacing-lg;
+      }
+    }
+    
+    .project-title {
+      font-size: $font-size-xl;
+      font-weight: 700;
+      margin-bottom: $spacing-md;
+      color: #ffffff;
+    }
+    
+    .project-summary {
+      color: #bbbbbb;
+      margin-bottom: $spacing-lg;
+      line-height: 1.8;
+    }
+    
+    .project-technologies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-xs;
+      margin-bottom: $spacing-lg;
+      
+      .technology-tag {
+        font-size: $font-size-xs;
+        background-color: rgba($accent-color, 0.15);
+        color: $accent-color;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          background-color: rgba($accent-color, 0.25);
+          transform: translateY(-2px);
+        }
+      }
+    }
+    
+    .project-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      @include mobile {
+        flex-direction: column;
+        gap: $spacing-md;
+        align-items: flex-start;
+      }
+      
+      .view-project-btn {
+        display: inline-block;
+        background-color: $accent-color;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba($accent-color, 0.3);
+        
+        &:hover {
+          background-color: darken($accent-color, 5%);
+          box-shadow: 0 6px 15px rgba($accent-color, 0.4);
+          transform: translateY(-3px);
+        }
+      }
+      
+      .external-links {
+        display: flex;
+        gap: $spacing-md;
+        
+        .external-link {
+          color: #ffffff;
+          opacity: 0.8;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            opacity: 1;
+            color: $accent-color;
+            transform: translateY(-2px);
+          }
+          
+          svg {
+            margin-right: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Projects filter */
+.projects-filter {
+  margin-bottom: $spacing-xl;
+  
+  .search-bar {
+    position: relative;
+    margin-bottom: $spacing-lg;
+    
+    input {
+      width: 100%;
+      padding: $spacing-sm $spacing-md;
+      padding-right: 40px;
+      font-size: $font-size-md;
+      border: 1px solid $medium-gray;
+      border-radius: $border-radius-md;
+      transition: all $transition-fast;
+      
+      &:focus {
+        outline: none;
+        border-color: $accent-color;
+        box-shadow: 0 0 0 2px rgba($accent-color, 0.2);
+      }
+    }
+    
+    .search-icon {
+      position: absolute;
+      right: $spacing-md;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $gray-text;
+    }
+  }
+  
+  .tech-filter {
+    .filter-title {
+      font-size: $font-size-md;
+      margin-bottom: $spacing-sm;
+      font-weight: 500;
+    }
+    
+    .tech-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-xs;
+      
+      .tech-button {
+        background-color: $light-gray;
+        border: 1px solid $medium-gray;
+        border-radius: $border-radius-sm;
+        padding: $spacing-xs $spacing-sm;
+        font-size: $font-size-sm;
+        cursor: pointer;
+        transition: all $transition-fast;
+        
+        &:hover {
+          background-color: darken($light-gray, 5%);
+        }
+        
+        &.active {
+          background-color: $accent-color;
+          color: $light-text;
+          border-color: $accent-color;
+        }
+      }
+    }
+  }
+}
+
+/* No projects found message */
+.no-projects {
+  text-align: center;
+  padding: $spacing-xl 0;
+  
+  p {
+    margin-bottom: $spacing-md;
+    color: $gray-text;
+  }
+} 
