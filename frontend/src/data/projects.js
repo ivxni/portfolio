@@ -25,7 +25,7 @@ const projects = [
     slug: "scrum-poker",
     summary: "A real-time Scrum Poker web application for agile development teams to efficiently estimate story points.",
     description: "Developed a modern Scrum Poker application for internal company usage, featuring Microsoft SSO authentication, real-time multiplayer sessions, and an intuitive UI. The application allows scrum teams to conduct planning sessions remotely with synchronized timers, hidden card values until reveal, and statistical analysis of team estimates.\n\nThe system implements Socket.io for real-time communication, ensuring seamless interaction between team members during estimation sessions. Room creation and management features allow Scrum Masters to organize multiple sessions with unique join codes.",
-    thumbnail: scrumpoker1,
+    thumbnail: scrumpoker2,
     gallery: [
       scrumpoker1,
       scrumpoker2,
