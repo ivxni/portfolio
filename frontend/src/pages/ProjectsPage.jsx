@@ -4,7 +4,7 @@ import projects from '../data/projects';
 import './ProjectsPage.scss';
 
 const ProjectsPage = () => {
-  // Funktion um zu prüfen, ob es sich um eine mobile App handelt
+  // Function to check if it's a mobile app
   const isMobileApp = (project) => {
     return project.type === "Mobile Application";
   };
@@ -22,7 +22,7 @@ const ProjectsPage = () => {
         {/* Projects grid */}
         <div className="projects-grid">
           {projects.map(project => (
-            <div className="project-card" key={project.id}>
+            <Link to={`/projects/${project.slug}`} className="project-card" key={project.id}>
               <div className="project-image">
                 <img 
                   src={project.thumbnail} 
@@ -44,12 +44,12 @@ const ProjectsPage = () => {
                 </div>
                 
                 <div className="project-links">
-                  <Link to={`/projects/${project.slug}`} className="view-project-btn">
+                  <span className="view-project-btn">
                     View Details
-                  </Link>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

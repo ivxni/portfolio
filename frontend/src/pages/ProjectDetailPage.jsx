@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import projects from '../data/projects';
 import './ProjectDetailPage.scss';
 
@@ -10,6 +11,10 @@ const ProjectDetailPage = () => {
   const navigate = useNavigate();
   const project = projects.find(project => project.slug === slug);
   const [enlargedImage, setEnlargedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Get all images for the slider (thumbnail + gallery)
+  const allImages = project ? [project.thumbnail, ...(project.gallery || []).filter(img => img !== project.thumbnail)] : [];
 
   // Stärkerer Scroll-Reset für die Detail-Seite
   useEffect(() => {
@@ -33,6 +38,34 @@ const ProjectDetailPage = () => {
     // Nach dem Rendern erneut ausführen
     requestAnimationFrame(resetScroll);
   }, [slug, location.key]);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    if (allImages.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === allImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 4000); // Change image every 4 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [currentImageIndex, allImages.length]);
+
+  // Handle manual navigation
+  const goToPrevious = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex(
+      currentImageIndex === 0 ? allImages.length - 1 : currentImageIndex - 1
+    );
+  };
+
+  const goToNext = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex(
+      currentImageIndex === allImages.length - 1 ? 0 : currentImageIndex + 1
+    );
+  };
 
   // Funktion um zu prüfen, ob es sich um eine mobile App handelt
   const isMobileApp = (project) => {
@@ -98,12 +131,48 @@ const ProjectDetailPage = () => {
         </div>
 
         <div className="project-banner">
-          <img 
-            src={project.thumbnail} 
-            alt={project.title} 
-            className={`project-image ${isMobileApp(project) ? 'mobile-app-image' : ''}`} 
-            onClick={() => handleImageClick(project.thumbnail)}
-          />
+          <div className="banner-slider">
+            <img 
+              src={allImages[currentImageIndex]} 
+              alt={`${project.title} - ${currentImageIndex + 1}`} 
+              className={`project-image ${isMobileApp(project) ? 'mobile-app-image' : ''}`} 
+              onClick={() => handleImageClick(allImages[currentImageIndex])}
+            />
+            
+            {/* Navigation arrows - only show if there are multiple images */}
+            {allImages.length > 1 && (
+              <>
+                <button 
+                  className="slider-arrow slider-arrow-left" 
+                  onClick={goToPrevious}
+                  aria-label="Previous image"
+                >
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                </button>
+                <button 
+                  className="slider-arrow slider-arrow-right" 
+                  onClick={goToNext}
+                  aria-label="Next image"
+                >
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </button>
+                
+                {/* Slide indicators */}
+                <div className="slider-indicators">
+                  {allImages.map((_, index) => (
+                    <span 
+                      key={index} 
+                      className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentImageIndex(index);
+                      }}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
 
         <div className="project-content">
@@ -189,7 +258,7 @@ const ProjectDetailPage = () => {
           {project.gallery && project.gallery.length > 0 && (
             <>
               <h2>Project Gallery</h2>
-              <div className="gallery-grid">
+              <div className={`gallery-grid ${isMobileApp(project) ? 'mobile-gallery' : ''}`}>
                 {project.gallery.map((image, index) => (
                   <div className="gallery-item" key={index} onClick={() => handleImageClick(image)}>
                     <img 

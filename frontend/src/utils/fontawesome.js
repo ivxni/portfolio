@@ -14,7 +14,10 @@ import {
   faWind,
   faPaperPlane,
   faCheckCircle,
-  faExclamationCircle
+  faExclamationCircle,
+  faChevronLeft,
+  faChevronRight,
+  faTimes
 } from '@fortawesome/free-solid-svg-icons';
 import { 
   faGithub, 
@@ -51,6 +54,9 @@ library.add(
   faPaperPlane,
   faCheckCircle,
   faExclamationCircle,
+  faChevronLeft,
+  faChevronRight,
+  faTimes,
   
   // Brand icons
   faGithub,

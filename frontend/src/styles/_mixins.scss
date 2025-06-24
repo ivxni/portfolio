@@ -81,16 +81,26 @@
 }
 
 @mixin button-primary {
-  @include button-base;
-  background-color: $accent-color;
-  color: $light-text;
+  display: inline-block;
+  background: $primary-color;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid $primary-color;
+  cursor: pointer;
   
   &:hover {
-    background-color: darken($accent-color, 10%);
+    background: darken($primary-color, 10%);
+    border-color: darken($primary-color, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba($primary-color, 0.3);
   }
   
   &:active {
-    background-color: darken($accent-color, 15%);
+    transform: translateY(0);
   }
 }
 

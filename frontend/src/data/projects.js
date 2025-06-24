@@ -1,21 +1,22 @@
 // Import Scrum Poker images
-import scrumpokerLanding from '../assets/scrumpoker/landingpage.png';
-import scrumpokerGameroom from '../assets/scrumpoker/gameroom.png';
-import scrumpokerCreateRoom from '../assets/scrumpoker/create-room-page.png';
-import scrumpokerProfile from '../assets/scrumpoker/profilepage.png';
-import scrumpokerLogin from '../assets/scrumpoker/loginpage.png';
+import scrumpoker1 from '../assets/new-scrumpoker/1.png';
+import scrumpoker2 from '../assets/new-scrumpoker/2.png';
+import scrumpoker3 from '../assets/new-scrumpoker/3.png';
+import scrumpoker4 from '../assets/new-scrumpoker/4.png';
+import scrumpoker5 from '../assets/new-scrumpoker/5.png';
+import scrumpoker6 from '../assets/new-scrumpoker/6.png';
+import scrumpoker7 from '../assets/new-scrumpoker/7.png';
+import scrumpoker8 from '../assets/new-scrumpoker/8.png';
 
-// Import Lynx AI images
-import lynxDashboard from '../assets/lynx/dashboard.webp';
-import lynxUpload from '../assets/lynx/upload-document.webp';
-import lynxHistory from '../assets/lynx/history.webp';
-import lynxProfile from '../assets/lynx/profilepage.webp';
-import lynxEditProfile from '../assets/lynx/edit-profile.webp';
-import lynxLogin from '../assets/lynx/login.webp';
-import lynxCreateAccount from '../assets/lynx/create-account.webp';
-import lynxGetStarted from '../assets/lynx/get-started.webp';
-import lynxLanguageSettings from '../assets/lynx/language-settings.webp';
-import lynxAppearanceSettings from '../assets/lynx/appearance-settings.webp';
+// Import SnapOCR images
+import snapocr1 from '../assets/new-snapocr/1.webp';
+import snapocr2 from '../assets/new-snapocr/2.webp';
+import snapocr3 from '../assets/new-snapocr/3.webp';
+import snapocr4 from '../assets/new-snapocr/4.webp';
+import snapocr5 from '../assets/new-snapocr/5.webp';
+import snapocr6 from '../assets/new-snapocr/6.webp';
+import snapocr7 from '../assets/new-snapocr/7.webp';
+import snapocr8 from '../assets/new-snapocr/8.webp';
 
 const projects = [
   {
@@ -24,12 +25,16 @@ const projects = [
     slug: "scrum-poker",
     summary: "A real-time Scrum Poker web application for agile development teams to efficiently estimate story points.",
     description: "Developed a modern Scrum Poker application for internal company usage, featuring Microsoft SSO authentication, real-time multiplayer sessions, and an intuitive UI. The application allows scrum teams to conduct planning sessions remotely with synchronized timers, hidden card values until reveal, and statistical analysis of team estimates.\n\nThe system implements Socket.io for real-time communication, ensuring seamless interaction between team members during estimation sessions. Room creation and management features allow Scrum Masters to organize multiple sessions with unique join codes.",
-    thumbnail: scrumpokerLanding,
+    thumbnail: scrumpoker1,
     gallery: [
-      scrumpokerGameroom,
-      scrumpokerCreateRoom,
-      scrumpokerProfile,
-      scrumpokerLogin
+      scrumpoker1,
+      scrumpoker2,
+      scrumpoker3,
+      scrumpoker4,
+      scrumpoker5,
+      scrumpoker6,
+      scrumpoker7,
+      scrumpoker8
     ],
     technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io", "Microsoft SSO"],
     features: [
@@ -59,22 +64,20 @@ const projects = [
   },
   {
     id: 2,
-    title: "LynxAI - OCR Document Scanner",
-    slug: "lynx-ai",
+    title: "SnapOCR - Document Scanner",
+    slug: "snap-ocr",
     summary: "A mobile app that converts document images to searchable PDF files using OCR technology and AI processing.",
-    description: "LynxAI is a powerful mobile application built with React Native/Expo that allows users to quickly convert physical documents into fully searchable PDF files. The app leverages Mistral OCR API to extract text from images with high accuracy, creating professional digital documents.\n\nThe application features a clean, modern interface with real-time progress tracking during OCR processing, document history management, and multiple sharing options. The backend is built with Node.js/Express and MongoDB for efficient data storage and retrieval.",
-    thumbnail: lynxDashboard,
+    description: "SnapOCR is a powerful mobile application built with React Native/Expo that allows users to quickly convert physical documents into fully searchable PDF files. The app leverages Mistral OCR API to extract text from images with high accuracy, creating professional digital documents.\n\nThe application features a clean, modern interface with real-time progress tracking during OCR processing, document history management, and multiple sharing options. The backend is built with Node.js/Express and MongoDB for efficient data storage and retrieval.",
+    thumbnail: snapocr1,
     gallery: [
-      lynxGetStarted,
-      lynxCreateAccount,
-      lynxLogin,
-      lynxDashboard,
-      lynxUpload,
-      lynxHistory,
-      lynxProfile,
-      lynxEditProfile,
-      lynxLanguageSettings,
-      lynxAppearanceSettings
+      snapocr1,
+      snapocr2,
+      snapocr3,
+      snapocr4,
+      snapocr5,
+      snapocr6,
+      snapocr7,
+      snapocr8
     ],
     technologies: ["React Native", "Expo", "Node.js", "Express", "MongoDB", "Mistral OCR API"],
     features: [
