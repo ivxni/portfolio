@@ -28,6 +28,7 @@ const SkillsPage = () => {
     { id: 'all', name: 'All Skills' },
     { id: 'frontend', name: 'Frontend' },
     { id: 'backend', name: 'Backend' },
+    { id: 'ai', name: 'AI & ML' },
     { id: 'design', name: 'Design' },
     { id: 'tools', name: 'Tools' },
     { id: 'devops', name: 'DevOps' }

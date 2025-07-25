@@ -133,8 +133,85 @@ const skills = [
     iconType: 'fab',
     color: '#3776AB',
     category: 'backend',
+    experience: 'Advanced', // Updated from Intermediate
+    description: 'AI/ML Development, Data Science, Automation, API Development',
+    proficiencyLevel: 90 // Updated from 70
+  },
+  {
+    id: 25,
+    name: 'Machine Learning',
+    icon: 'brain',
+    iconType: 'fas',
+    color: '#9B7EFF', // Light purple variant
+    category: 'ai',
+    experience: 'Advanced',
+    description: 'Neural Networks, Deep Learning, Model Training & Optimization',
+    proficiencyLevel: 85
+  },
+  {
+    id: 26,
+    name: 'TensorFlow',
+    icon: 'robot',
+    iconType: 'fas',
+    color: '#8B6FFF', // Medium purple variant
+    category: 'ai',
     experience: 'Intermediate',
-    description: 'Data Processing, Automation, Web Scraping',
+    description: 'Deep Learning Framework, Model Development',
+    proficiencyLevel: 75
+  },
+  {
+    id: 27,
+    name: 'PyTorch',
+    icon: 'fire',
+    iconType: 'fas',
+    color: '#A58BFF', // Light purple variant
+    category: 'ai',
+    experience: 'Intermediate',
+    description: 'Deep Learning, Research & Development',
+    proficiencyLevel: 70
+  },
+  {
+    id: 28,
+    name: 'LangChain',
+    icon: 'link',
+    iconType: 'fas',
+    color: '#7B61FF', // Primary purple
+    category: 'ai',
+    experience: 'Advanced',
+    description: 'LLM Applications, RAG Systems, Agent Development',
+    proficiencyLevel: 85
+  },
+  {
+    id: 29,
+    name: 'OpenAI API',
+    icon: 'microchip',
+    iconType: 'fas',
+    color: '#6B51EF', // Dark purple variant
+    category: 'ai',
+    experience: 'Advanced',
+    description: 'GPT Integration, Prompt Engineering, AI Applications',
+    proficiencyLevel: 90
+  },
+  {
+    id: 30,
+    name: 'Hugging Face',
+    icon: 'face-smile',
+    iconType: 'fas',
+    color: '#8B6FFF', // Medium purple variant
+    category: 'ai',
+    experience: 'Intermediate',
+    description: 'Transformers, Model Deployment, NLP',
+    proficiencyLevel: 75
+  },
+  {
+    id: 31,
+    name: 'Computer Vision',
+    icon: 'eye',
+    iconType: 'fas',
+    color: '#9B7EFF', // Light purple variant
+    category: 'ai',
+    experience: 'Intermediate',
+    description: 'OpenCV, Image Processing, Object Detection',
     proficiencyLevel: 70
   },
   {
